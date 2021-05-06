@@ -1,23 +1,15 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import MyButtonBlue from './components/adminUIKit/MyButtonBlue';
+import MyButtonGroup from './components/adminUIKit/MyButtonGroup';
+import MyInputField from './components/adminUIKit/MyInputField';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit-шмедит <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <MyButtonGroup />
+      <MyButtonBlue />
+      <MyInputField title={'Модель автомобиля'} />
     </div>
   );
 }
