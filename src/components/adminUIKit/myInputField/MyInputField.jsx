@@ -4,7 +4,6 @@ import { TextField } from '@material-ui/core';
 import styles from './MyInputField.module.scss';
 
 const useStyles = makeStyles({
-  input: {},
   root: {
     '& .MuiOutlinedInput-input': {
       padding: '8px 0 8px 10px',
@@ -20,7 +19,7 @@ const useStyles = makeStyles({
   },
 });
 
-const MyInputField = ({ title }) => {
+const MyInputField = ({ title, defaultValue, error }) => {
   const classes = useStyles();
   return (
     <div className={styles.inputField}>
@@ -30,7 +29,9 @@ const MyInputField = ({ title }) => {
           root: classes.root,
           outlined: classes.outlined,
         }}
-        defaultValue="Hundai"
+        defaultValue={defaultValue}
+        error={error}
+        helperText={error ? 'Error reason' : ''}
         variant="outlined"
       />
     </div>
