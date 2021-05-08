@@ -1,0 +1,36 @@
+.input_file {
+    display: flex;
+    position: relative;
+    margin: 0 0 10px 0;
+   }
+.input_file input[type=file] {
+    opacity: 0;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+    position: absolute;
+    z-index: 2;
+    cursor: pointer;
+    height: 34px;
+    width: 300px;
+}
+.fake_file{
+    position: absolute;
+    z-index: 1;
+    cursor: pointer;
+    height: 34px;
+    width: 300px;
+}
+.fake_file_input {
+    width: 150px;
+    height: 29px;        
+    font-family: 'Helvetica';
+    font-size: 11px;
+    line-height: 12.65px;
+}
+.fake_file_button{
+    width: 64px;
+    height: 35px;        
+    font-family: 'Helvetica';
+    font-size: 11px;
+    line-height: 12.65px;
+
+}
