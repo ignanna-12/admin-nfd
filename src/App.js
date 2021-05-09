@@ -1,11 +1,16 @@
 import React from 'react';
+import { Route, Switch } from 'react-router';
 import './App.css';
-import AdminUI from './components/adminUIKit/AdminUI';
+import AdminPanel from './components/adminPanel/AdminPanel';
+import EnterToAdminPanel from './components/login/enterToAdminPanel/EnterToAdminPanel';
 
 function App() {
   return (
     <div className="App">
-      <AdminUI />
+      <Switch>
+        <Route path="/admin" component={AdminPanel} />
+        <Route exact path="/" component={EnterToAdminPanel} />
+      </Switch>
     </div>
   );
 }

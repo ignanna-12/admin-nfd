@@ -1,0 +1,47 @@
+.form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.field {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Helvetica';
+    font-size: 11px;
+    align-items: flex-start;
+}
+.field input {
+    border: 1px solid #BECAD6;
+    width: 341.5px;
+    height: 29px;
+    border-radius: 3px;
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+.field input:hover {
+    border-color: #007BFF;
+}
+.field input:active{
+    border-color: #007BFF;
+}
+.field label {
+    color: #495057;
+}
+.buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.textButton{
+    outline: none;
+    border: none;
+    color:#007BFF;
+    font-family: 'Helvetica';
+    font-size: 11px;
+    background-color: transparent;
+    cursor: pointer;
+}

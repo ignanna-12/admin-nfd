@@ -30,6 +30,7 @@ const MyButtonBlue = () => {
         }}
         variant="contained"
         color="primary"
+        type="submit"
       >
         Войти
       </Button>
