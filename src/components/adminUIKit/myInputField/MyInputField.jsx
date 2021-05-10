@@ -7,11 +7,12 @@ const useStyles = makeStyles({
   root: {
     '& .MuiOutlinedInput-input': {
       padding: '8px 0 8px 10px',
-      width: '320px',
+      width: '334px',
       height: '20px',
       fontFamily: 'Helvetica',
       fontSize: '11px',
       lineHeight: '13px',
+      borderColorActive: '#007BFF',
     },
   },
   outlined: {
@@ -19,7 +20,7 @@ const useStyles = makeStyles({
   },
 });
 
-const MyInputField = ({ title, defaultValue, error, onChange }) => {
+const MyInputField = ({ title, defaultValue, error, onChange, password }) => {
   const classes = useStyles();
   return (
     <div className={styles.inputField}>
@@ -34,6 +35,7 @@ const MyInputField = ({ title, defaultValue, error, onChange }) => {
         helperText={error ? 'Error reason' : ''}
         variant="outlined"
         onChange={onChange}
+        type={password}
       />
     </div>
   );

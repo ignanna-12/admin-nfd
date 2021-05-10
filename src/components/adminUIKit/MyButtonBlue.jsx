@@ -15,11 +15,12 @@ const useStyles = makeStyles({
     fontFamily: 'Helvetica',
     fontSize: '11.5px',
     fontWeight: 400,
-    lineHeight: '12.65px',
+    border: 'none',
+    outline: 'none',
   },
 });
 
-const MyButtonBlue = () => {
+const MyButtonBlue = ({ onClick }) => {
   const classes = useStyles();
   return (
     <div>
@@ -31,6 +32,7 @@ const MyButtonBlue = () => {
         variant="contained"
         color="primary"
         type="submit"
+        onClick={onClick}
       >
         Войти
       </Button>
