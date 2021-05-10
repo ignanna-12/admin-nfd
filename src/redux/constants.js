@@ -37,3 +37,7 @@ export const PointTypes = {
 export const CarTypes = {
   SET_CARS: 'Car/setCars',
 };
+
+export const AuthTypes = {
+  SET_AUTH: 'Auth/setAuth',
+};

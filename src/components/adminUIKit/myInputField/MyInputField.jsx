@@ -19,7 +19,7 @@ const useStyles = makeStyles({
   },
 });
 
-const MyInputField = ({ title, defaultValue, error }) => {
+const MyInputField = ({ title, defaultValue, error, onChange }) => {
   const classes = useStyles();
   return (
     <div className={styles.inputField}>
@@ -33,6 +33,7 @@ const MyInputField = ({ title, defaultValue, error }) => {
         error={error}
         helperText={error ? 'Error reason' : ''}
         variant="outlined"
+        onChange={onChange}
       />
     </div>
   );

@@ -3,12 +3,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import styles from './EnterToAdminPanel.module.scss';
 import { CardContent } from '@material-ui/core';
-import LoginForm from '../loginForm/LoginForm';
+import LoginForm from '../loginForm/LoginForm copy';
 import Logo from '../../../assets/icons/Logo Icon.svg';
 import SVG from 'react-inlinesvg';
-import { useSelector } from 'react-redux';
-import { emailSel, passwordSel } from '../../../redux/selectors/selectors';
+import { useDispatch, useSelector } from 'react-redux';
+import { passwordSel, userNameSel } from '../../../redux/selectors/selectors';
 import store from '../../../redux/store';
+import { setPassword, setUserName } from '../../../redux/actions/actions';
 
 const useStyles = makeStyles({
   root: {
@@ -27,10 +28,11 @@ const useStyles = makeStyles({
 });
 
 const EnterToAdminPanel = () => {
-  // const email = useSelector(emailSel);
-  // const password = useSelector(passwordSel);
+  const dispatch = useDispatch();
   const onSubmit = () => {
-    console.log(store.getState().form);
+    //dispatch(setUserName(store.getState().form.email));
+    //dispatch(setPassword(store.getState().form.password));
+    //console.log(store.getState().form.email.value);
   };
   const classes = useStyles();
   return (
