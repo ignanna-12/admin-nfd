@@ -1,16 +1,7 @@
 import React, { useState } from 'react';
-import styles from './MyRadios.module.scss';
+import styles from './Radios.module.scss';
 
-const MyRadios = ({
-  setDefaultValue,
-  selectedValue,
-  defaultText,
-  list,
-  holeList,
-  vert,
-  checkedBefore,
-  disabled,
-}) => {
+const Radios = ({ defaultText, list, vert, checkedBefore, disabled }) => {
   const [checked, setChecked] = useState(checkedBefore ? checkedBefore : defaultText);
   return (
     <div className={vert ? styles.radios_vert : styles.radios}>
@@ -39,4 +30,4 @@ const MyRadios = ({
   );
 };
 
-export default MyRadios;
+export default Radios;

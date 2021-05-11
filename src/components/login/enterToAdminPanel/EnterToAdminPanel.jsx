@@ -6,6 +6,8 @@ import { CardContent } from '@material-ui/core';
 import LoginForm from '../loginForm/LoginForm';
 import Logo from '../../../assets/icons/Logo Icon.svg';
 import SVG from 'react-inlinesvg';
+import { userIdRegSel } from '../../../redux/selectors/auth_selectors';
+import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles({
   root: {
@@ -28,6 +30,7 @@ const useStyles = makeStyles({
 
 const EnterToAdminPanel = () => {
   const classes = useStyles();
+  const userIdReg = useSelector(userIdRegSel);
   return (
     <div className={styles.enter}>
       <div className={styles.logo}>
@@ -36,7 +39,11 @@ const EnterToAdminPanel = () => {
       </div>
       <Card className={classes.root}>
         <CardContent>
-          <p className={classes.title}>Вход</p>
+          {userIdReg ? (
+            <div style={{ color: '#0EC261' }}>Доступ разрешен</div>
+          ) : (
+            <p className={classes.title}>Вход</p>
+          )}
           <LoginForm />
         </CardContent>
       </Card>

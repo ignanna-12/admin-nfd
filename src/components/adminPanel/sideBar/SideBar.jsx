@@ -1,13 +1,27 @@
 import React from 'react';
 import styles from './SideBar.module.scss';
 import Logo from '../../../assets/icons/Logo Icon.svg';
-import MailIcon from '@material-ui/icons/Mail';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
+import DynamicFeed from '@material-ui/icons/DynamicFeed';
+import EmojiTransportation from '@material-ui/icons/EmojiTransportation';
+import DirectionsCar from '@material-ui/icons/DirectionsCar';
+import Commute from '@material-ui/icons/Commute';
+import Apartment from '@material-ui/icons/Apartment';
 import SVG from 'react-inlinesvg';
 import { Divider, List, ListItem, ListItemIcon, ListItemText, makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
-  toolbar: theme.mixins.toolbar,
+  root: {
+    '& .MuiListItemText-root': {
+      color: '#3D5170',
+      fontSize: '15px',
+      fontFamily: 'Helvetica',
+      colorHover: '#007BFF',
+    },
+    '& .MuiListItem-button:hover': {
+      color: '#007BFF',
+      borderHover: 'solid 1px #007BFF',
+    },
+  },
 }));
 
 const SideBar = () => {
@@ -18,24 +32,27 @@ const SideBar = () => {
         <SVG src={Logo} />
         <p>Need for drive</p>
       </div>
-      <div className={classes.toolbar} />
-      <Divider />
       <List>
-        {['Карточка автомобиля', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        {['Карточка автомобиля', 'Список авто', 'Города', 'Пункты выдачи', 'Заказы'].map(
+          (text, index) => (
+            <ListItem classes={{ root: classes.root }} className={styles.list} button key={text}>
+              <ListItemIcon>
+                {index == 0 ? (
+                  <DirectionsCar />
+                ) : index == 1 ? (
+                  <Commute />
+                ) : index == 2 ? (
+                  <Apartment />
+                ) : index == 3 ? (
+                  <EmojiTransportation />
+                ) : (
+                  <DynamicFeed />
+                )}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItem>
+          )
+        )}
       </List>
     </div>
   );

@@ -20,7 +20,7 @@ const useStyles = makeStyles({
   },
 });
 
-const MyButtonBlue = ({ onClick }) => {
+const ButtonBlue = ({ onClick }) => {
   const classes = useStyles();
   return (
     <div>
@@ -40,4 +40,4 @@ const MyButtonBlue = ({ onClick }) => {
   );
 };
 
-export default MyButtonBlue;
+export default ButtonBlue;

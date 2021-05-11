@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { TextField } from '@material-ui/core';
-import styles from './MyInputField.module.scss';
+import styles from './InputField.module.scss';
 
 const useStyles = makeStyles({
   root: {
@@ -20,7 +20,7 @@ const useStyles = makeStyles({
   },
 });
 
-const MyInputField = ({ title, defaultValue, error, onChange, password, errorReason }) => {
+const InputField = ({ title, defaultValue, error, onChange, password, errorReason }) => {
   const classes = useStyles();
   return (
     <div className={styles.inputField}>
@@ -41,4 +41,4 @@ const MyInputField = ({ title, defaultValue, error, onChange, password, errorRea
   );
 };
 
-export default MyInputField;
+export default InputField;

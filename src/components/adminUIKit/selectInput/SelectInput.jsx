@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { FormControl, InputLabel, Select } from '@material-ui/core';
-import styles from './MySelect.module.scss';
+import styles from './SelectInput.module.scss';
 
 const useStyles = makeStyles({
   root: {
@@ -14,7 +14,7 @@ const useStyles = makeStyles({
   },
 });
 
-const MySelect = ({ title, defaultValue }) => {
+const SelectInput = ({ title, defaultValue }) => {
   const classes = useStyles();
   return (
     <div className={styles.inputField}>
@@ -38,4 +38,4 @@ const MySelect = ({ title, defaultValue }) => {
   );
 };
 
-export default MySelect;
+export default SelectInput;

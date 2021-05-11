@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import styles from './MyFileUpload.module.scss';
+import styles from './FileUpload.module.scss';
 
-const MyFileUpload = () => {
+const FileUpload = () => {
   const [choosedFile, setChoosedFile] = useState('Choose file...');
   return (
     <div className={styles.input_file}>
@@ -20,4 +20,4 @@ const MyFileUpload = () => {
   );
 };
 
-export default MyFileUpload;
+export default FileUpload;

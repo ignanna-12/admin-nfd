@@ -1,5 +1,5 @@
 import { postAccess, postAuth } from '../../api/api';
-import { authFetch, authSuccess, authFailed, regSuccess } from '../actions/actions';
+import { authFetch, authSuccess, authFailed, regSuccess } from '../actions/auth_actions';
 
 export const requestAccess = (userName, password) => {
   return async (dispatch) => {

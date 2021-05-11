@@ -1,4 +1,4 @@
-import { AuthTypes } from '../constants';
+import { AuthTypes } from '../constants/auth_constants';
 
 let initialState = {
   user_id_reg: '',
