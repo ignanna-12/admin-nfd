@@ -1,65 +1,40 @@
 import { AuthTypes } from '../constants';
 
 let initialState = {
-  username: '',
-  password: '',
-  access_token: '',
-  refresh_token: '',
-  expires_in: 0,
-  user_id: '',
+  user_id_reg: '',
+  user_id_login: '',
+  isLoading: false,
+  isError: false,
 };
 
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
-    case AuthTypes.SET_USER_NAME: {
+    case AuthTypes.AUTH_FETCH: {
       return {
         ...state,
-        username: action.payload,
-        password: '',
-        access_token: '',
-        refresh_token: '',
-        expires_in: 0,
-        user_id: '',
+        isLoading: true,
+        isError: false,
       };
     }
-    case AuthTypes.SET_PASSWORD: {
+    case AuthTypes.AUTH_SUCCESS: {
       return {
         ...state,
-        password: action.payload,
-        access_token: '',
-        refresh_token: '',
-        expires_in: 0,
-        user_id: '',
+        isLoading: false,
+        user_id_login: action.payload,
       };
     }
-    case AuthTypes.SET_ACCESS_TOKEN: {
+    case AuthTypes.REG_SUCCESS: {
       return {
         ...state,
-        access_token: action.payload,
-        refresh_token: '',
-        expires_in: 0,
-        user_id: '',
+        isLoading: false,
+        user_id_reg: action.payload,
       };
     }
-    case AuthTypes.SET_REFRESH_TOKEN: {
+    case AuthTypes.AUTH_FAILED: {
       return {
         ...state,
-        refresh_token: action.payload,
-        expires_in: 0,
-        user_id: '',
-      };
-    }
-    case AuthTypes.SET_EXPIRES_IN: {
-      return {
-        ...state,
-        expires_in: action.payload,
-        user_id: '',
-      };
-    }
-    case AuthTypes.SET_USER_ID: {
-      return {
-        ...state,
-        user_id: action.payload,
+        isError: true,
+        isLoading: false,
       };
     }
     default:

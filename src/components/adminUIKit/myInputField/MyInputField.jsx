@@ -20,7 +20,7 @@ const useStyles = makeStyles({
   },
 });
 
-const MyInputField = ({ title, defaultValue, error, onChange, password }) => {
+const MyInputField = ({ title, defaultValue, error, onChange, password, errorReason }) => {
   const classes = useStyles();
   return (
     <div className={styles.inputField}>
@@ -32,7 +32,7 @@ const MyInputField = ({ title, defaultValue, error, onChange, password }) => {
         }}
         defaultValue={defaultValue}
         error={error}
-        helperText={error ? 'Error reason' : ''}
+        helperText={error ? errorReason : ''}
         variant="outlined"
         onChange={onChange}
         type={password}
