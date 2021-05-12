@@ -7,24 +7,32 @@ import DirectionsCar from '@material-ui/icons/DirectionsCar';
 import Commute from '@material-ui/icons/Commute';
 import Apartment from '@material-ui/icons/Apartment';
 import SVG from 'react-inlinesvg';
-import { Divider, List, ListItem, ListItemIcon, ListItemText, makeStyles } from '@material-ui/core';
+import { List, ListItem, ListItemIcon, ListItemText, makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    '& .MuiListItemText-root': {
-      color: '#3D5170',
-      fontSize: '15px',
-      fontFamily: 'Helvetica',
-      colorHover: '#007BFF',
+    color: '#3D5170',
+    fontSize: 15,
+    fontFamily: 'Helvetica',
+    '& svg': {
+      fill: '#CACEDB',
+    },
+    '& .MuiListItem-button': {
+      border: 'solid 1px #CACEDB',
     },
     '& .MuiListItem-button:hover': {
       color: '#007BFF',
-      borderHover: 'solid 1px #007BFF',
+      border: 'solid 1px #CACEDB',
+    },
+    '& .MuiListItem-button:focus': {
+      color: '#007BFF',
+      border: 'solid 1px #CACEDB',
+      borderLeft: 'solid 3px #007BFF',
     },
   },
 }));
 
-const SideBar = () => {
+const SideBar = ({ onClick }) => {
   const classes = useStyles();
   return (
     <div className={styles.side_bar}>
@@ -32,10 +40,10 @@ const SideBar = () => {
         <SVG src={Logo} />
         <p>Need for drive</p>
       </div>
-      <List>
+      <List classes={{ root: classes.root }}>
         {['Карточка автомобиля', 'Список авто', 'Города', 'Пункты выдачи', 'Заказы'].map(
           (text, index) => (
-            <ListItem classes={{ root: classes.root }} className={styles.list} button key={text}>
+            <ListItem button key={text} onClick={() => onClick(index)}>
               <ListItemIcon>
                 {index == 0 ? (
                   <DirectionsCar />
