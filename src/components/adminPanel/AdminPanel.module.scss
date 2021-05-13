@@ -6,8 +6,15 @@
     flex-direction: row;
 }
 .header_sidebar{
+    width: 100%;
     display: flex;
     flex-direction: row;
+}
+.header_footer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .content{
     width: 100%;

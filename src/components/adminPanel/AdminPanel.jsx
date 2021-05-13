@@ -6,6 +6,7 @@ import Cities from './contentComponent/cities/Cities';
 import ContentComponent from './contentComponent/ContentComponent';
 import Orders from './contentComponent/orders/Orders';
 import Points from './contentComponent/points/Points';
+import Footer from './footer/Footer';
 import Header from './header/Header';
 import SideBar from './sideBar/SideBar';
 
@@ -14,21 +15,24 @@ const AdminPanel = () => {
   return (
     <div className={styles.panel}>
       <div className={styles.header_sidebar}>
-        <Header />
         <SideBar onClick={(v) => setActivePage(v)} />
-      </div>
-      <div className={styles.content}>
-        {activePage == 0 ? (
-          <ContentComponent title={'Карточка автомобиля'} />
-        ) : activePage == 1 ? (
-          <CarsList />
-        ) : activePage == 2 ? (
-          <Cities />
-        ) : activePage == 3 ? (
-          <Points />
-        ) : (
-          activePage == 4 && <Orders />
-        )}
+        <div className={styles.header_footer}>
+          <Header />
+          <div className={styles.content}>
+            {activePage == 0 ? (
+              <CarCard title={'Карточка автомобиля'} />
+            ) : activePage == 1 ? (
+              <CarsList />
+            ) : activePage == 2 ? (
+              <Cities />
+            ) : activePage == 3 ? (
+              <Points />
+            ) : (
+              activePage == 4 && <Orders />
+            )}
+          </div>
+          <Footer />
+        </div>
       </div>
     </div>
   );

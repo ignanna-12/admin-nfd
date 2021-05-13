@@ -1,0 +1,16 @@
+.progress_bar{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+}
+.top_row{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.progress_line{
+    width: 100%;
+    height: 5px;
+    border: 1px solid #EEEEEE;
+}

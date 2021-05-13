@@ -32,10 +32,10 @@ const Header = () => {
             </Grid>
           </Grid>
         </div>
-        <div className={styles.images}>
-          <img src={Noti} />
-          <img src={UserFace} style={{ height: '50px', marginLeft: '16px' }} />
-        </div>
+      </div>
+      <div className={styles.images}>
+        <img src={Noti} />
+        <img src={UserFace} style={{ height: '50px', marginLeft: '16px' }} />
       </div>
     </div>
   );

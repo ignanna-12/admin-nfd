@@ -12,22 +12,31 @@ import { List, ListItem, ListItemIcon, ListItemText, makeStyles } from '@materia
 const useStyles = makeStyles((theme) => ({
   root: {
     color: '#3D5170',
-    fontSize: 15,
-    fontFamily: 'Helvetica',
+    typography: {
+      fontSize: 10,
+      fontFamily: 'Helvetica',
+    },
     '& svg': {
       fill: '#CACEDB',
     },
     '& .MuiListItem-button': {
+      height: '57.5px',
       border: 'solid 1px #CACEDB',
     },
     '& .MuiListItem-button:hover': {
       color: '#007BFF',
       border: 'solid 1px #CACEDB',
+      '& svg': {
+        fill: '#007BFF',
+      },
     },
     '& .MuiListItem-button:focus': {
       color: '#007BFF',
       border: 'solid 1px #CACEDB',
       borderLeft: 'solid 3px #007BFF',
+      '& svg': {
+        fill: '#007BFF',
+      },
     },
   },
 }));
