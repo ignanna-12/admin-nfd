@@ -9,7 +9,9 @@ const ProgressBar = () => {
         <div>Заполнено</div>
         <div>{progress}%</div>
       </div>
-      <div className={styles.progress_line}></div>
+      <div className={styles.progress_line}>
+        <div className={styles.done_line} style={{ width: `${progress}%` }}></div>
+      </div>
     </div>
   );
 };

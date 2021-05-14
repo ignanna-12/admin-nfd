@@ -20,7 +20,7 @@ const AdminPanel = () => {
           <Header />
           <div className={styles.content}>
             {activePage == 0 ? (
-              <CarCard title={'Карточка автомобиля'} />
+              <ContentComponent />
             ) : activePage == 1 ? (
               <CarsList />
             ) : activePage == 2 ? (

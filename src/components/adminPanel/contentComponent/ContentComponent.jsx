@@ -1,10 +1,13 @@
 import React from 'react';
+import CarCard from './carCard/CarCard';
+import CarOptions from './carCard/carOptions/CarOptions';
 import styles from './ContentComponent.module.scss';
 
-const ContentComponent = ({ title }) => {
+const ContentComponent = () => {
   return (
     <div className={styles.component}>
-      <div className={styles.title}>{title}</div>
+      <CarCard />
+      <CarOptions />
     </div>
   );
 };

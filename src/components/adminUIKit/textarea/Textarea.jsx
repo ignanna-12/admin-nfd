@@ -5,7 +5,7 @@ import styles from './Textarea.module.scss';
 const Textarea = ({ title }) => (
   <div className={styles.inputField}>
     <p>{title}</p>
-    <TextareaAutosize />
+    <TextareaAutosize style={{ width: '90%' }} />
   </div>
 );
 

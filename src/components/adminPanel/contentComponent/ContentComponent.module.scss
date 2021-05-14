@@ -3,7 +3,9 @@
     height: 100%;
     background-color: transparent;
     display: flex;
-    align-items: flex-start;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: left;
 }
 .title {
     margin-top: 16px;

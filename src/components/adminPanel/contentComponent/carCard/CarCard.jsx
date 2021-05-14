@@ -1,6 +1,8 @@
 import { Card, CardContent, makeStyles } from '@material-ui/core';
 import React, { useState } from 'react';
 import ProgressBar from '../../../adminUIKit/progressBar/ProgressBar';
+import FileUpload from '../../../adminUIKit/fileUpload/FileUpload';
+import Textarea from '../../../adminUIKit/textarea/Textarea';
 import Car from './car/Car';
 import styles from './CarCard.module.scss';
 
@@ -9,8 +11,11 @@ const useStyles = makeStyles({
     marginLeft: 16,
     width: 376,
     height: 700,
-    color: 'red',
     padding: '0',
+    alignItems: 'center',
+    '& .MuiCardContent-root': {
+      padding: 0,
+    },
   },
   title: {
     fontFamily: 'Helvetica',
@@ -18,9 +23,6 @@ const useStyles = makeStyles({
     color: '#3D5170',
     marginTop: '0',
     marginBottom: '16px',
-  },
-  '& .MuiPaper-root': {
-    color: 'red',
   },
 });
 const CarCard = () => {
@@ -32,9 +34,9 @@ const CarCard = () => {
       <Card className={classes.root}>
         <CardContent>
           <Car />
-          <div className={styles.progress}>
-            <ProgressBar />
-          </div>
+          <FileUpload />
+          <ProgressBar />
+          <Textarea title={'Описание'} />
         </CardContent>
       </Card>
     </div>
