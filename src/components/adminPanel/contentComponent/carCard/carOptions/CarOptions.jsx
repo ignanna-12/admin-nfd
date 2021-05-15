@@ -1,11 +1,12 @@
 import { Card, CardContent, makeStyles } from '@material-ui/core';
 import React, { useState } from 'react';
+import InputField from '../../../../adminUIKit/inputField/InputField';
 import styles from './CarOptions.module.scss';
 
 const useStyles = makeStyles({
   root: {
     marginLeft: 16,
-    width: 376,
+    width: 700,
     height: 700,
     padding: '0',
     alignItems: 'center',
@@ -27,7 +28,12 @@ const CarOptions = () => {
     <div className={styles.car_options}>
       <Card className={classes.root}>
         <div className={styles.title}>Настройки автомобиля</div>
-        <CardContent></CardContent>
+        <CardContent>
+          <div className={styles.top_row}>
+            <InputField title={'Модель автомобиля'} />
+            <InputField title={'Тип автомобиля'} />
+          </div>
+        </CardContent>
       </Card>
     </div>
   );
