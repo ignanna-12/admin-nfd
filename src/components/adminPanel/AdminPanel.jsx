@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { requestCategory } from '../../redux/thunk/category.thunk';
 import styles from './AdminPanel.module.scss';
 import CarCard from './contentComponent/carCard/CarCard';
 import CarsList from './contentComponent/carsList/CarsList';
@@ -11,6 +13,10 @@ import Header from './header/Header';
 import SideBar from './sideBar/SideBar';
 
 const AdminPanel = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(requestCategory());
+  }, []);
   const [activePage, setActivePage] = useState(0);
   return (
     <div className={styles.panel}>

@@ -1,4 +1,5 @@
 import * as axios from 'axios';
+import { getCookie } from '../utils/getCookie';
 
 const instance = axios.create({
   baseURL: process.env.NODE_ENV === 'production' ? 'https://api-factory.simbirsoft1.com/api/' : '',
@@ -14,10 +15,26 @@ const instanceAuth = axios.create({
   },
 });
 
+const instanceAdmin = axios.create({
+  baseURL: process.env.NODE_ENV === 'production' ? 'https://api-factory.simbirsoft1.com/api/' : '',
+  headers: {
+    'X-Api-Factory-Application-Id': '5e25c641099b810b946c5d5b',
+    Authorization: 'Bearer ' + getCookie('access_token'),
+  },
+});
+
 export const postAccess = (username, password) => {
   return instance.post('auth/register', { username, password }).then((response) => {
     return response.data;
   });
+};
+
+export const postCar = (priceMin, priceMax, name, thumbnail, description, categoryId, colors) => {
+  return instanceAdmin
+    .post('db/car', { priceMin, priceMax, name, thumbnail, description, categoryId, colors })
+    .then((response) => {
+      return response.data;
+    });
 };
 
 export const postAuth = (username, password) => {
@@ -50,37 +67,10 @@ export const getRate = () => {
   });
 };
 
-export const postOrder = (
-  userCityId,
-  userPointId,
-  carId,
-  userColor,
-  dateFrom,
-  dateTo,
-  rateId,
-  price,
-  tank,
-  chair,
-  wheel
-) => {
-  return instance
-    .post('db/order/', {
-      orderStatusId: '5e26a191099b810b946c5d89',
-      cityId: userCityId,
-      pointId: userPointId,
-      carId: carId,
-      color: userColor,
-      dateFrom: dateFrom,
-      dateTo: dateTo,
-      rateId: rateId,
-      price: price,
-      isFullTank: tank,
-      isNeedChildChair: chair,
-      isRightWheel: wheel,
-    })
-    .then((response) => {
-      return response.data;
-    });
+export const getCategory = () => {
+  return instance.get('db/category/').then((response) => {
+    return response.data;
+  });
 };
 
 export const getOrder = (orderId) => {

@@ -20,7 +20,7 @@ const useStyles = makeStyles({
   },
 });
 
-const ButtonBlue = ({ onClick }) => {
+const ButtonBlue = ({ onClick, title }) => {
   const classes = useStyles();
   return (
     <div>
@@ -34,7 +34,7 @@ const ButtonBlue = ({ onClick }) => {
         type="submit"
         onClick={onClick}
       >
-        Войти
+        {title}
       </Button>
     </div>
   );

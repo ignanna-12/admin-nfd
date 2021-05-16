@@ -14,7 +14,7 @@ const useStyles = makeStyles({
   },
 });
 
-const SelectInput = ({ title, defaultValue }) => {
+const SelectInput = ({ title, defaultValue, onChange, options, getOptionLabel }) => {
   const classes = useStyles();
   return (
     <div className={styles.inputField}>
@@ -32,6 +32,8 @@ const SelectInput = ({ title, defaultValue }) => {
           }}
           defaultValue={defaultValue}
           variant="outlined"
+          onChange={onChange}
+          options={['options', 'fdsf', 'dvxv']}
         />
       </FormControl>
     </div>

@@ -7,6 +7,7 @@ import {
   userIdLoginSel,
 } from '../../../redux/selectors/auth_selectors';
 import { requestAccess, requestAuth } from '../../../redux/thunk/auth.thunk';
+import { requestRate } from '../../../redux/thunk/category.thunk';
 import ButtonBlue from '../../adminUIKit/ButtonBlue';
 import InputField from '../../adminUIKit/inputField/InputField';
 import Preloader from '../../adminUIKit/preloader/Preloader';
@@ -73,7 +74,12 @@ let LoginForm = ({ onSubmit }) => {
         >
           Запросить доступ
         </button>
-        <ButtonBlue onClick={() => reqAuth(email, password)} />
+        <ButtonBlue
+          title={'Войти'}
+          onClick={() => {
+            reqAuth(email, password);
+          }}
+        />
       </div>
     </div>
   );

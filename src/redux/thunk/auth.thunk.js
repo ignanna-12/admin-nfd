@@ -1,4 +1,5 @@
 import { postAccess, postAuth } from '../../api/api';
+import { setCookie } from '../../utils/setCookie';
 import { authFetch, authSuccess, authFailed, regSuccess } from '../actions/auth_actions';
 
 export const requestAccess = (userName, password) => {
@@ -18,6 +19,7 @@ export const requestAuth = (userName, password) => {
       dispatch(authFetch());
       let data = await postAuth(userName, password);
       dispatch(authSuccess(data.user_id));
+      setCookie('access_token', data.access_token);
     } catch (error) {
       dispatch(authFailed());
     }
