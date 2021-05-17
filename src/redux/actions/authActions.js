@@ -1,4 +1,4 @@
-import { AuthTypes } from '../constants/auth_constants';
+import { AuthTypes } from '../constants/authConstants';
 
 export const authFetch = () => ({ type: AuthTypes.AUTH_FETCH });
 export const authSuccess = (id) => ({ type: AuthTypes.AUTH_SUCCESS, payload: id });

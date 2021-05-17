@@ -1,13 +1,20 @@
-import { CarTypes } from '../constants/car_constants';
+import { CarTypes } from '../constants/carConstants';
 
 let initialState = {
   imageCar: '',
-  priceMax: 0,
-  priceMin: 0,
-  name: '',
-  thumbnail: {},
-  description: '',
-  categoryId: '',
+  priceMax: 1000,
+  priceMin: 100,
+  name: 'Форд фокус',
+  thumbnail: {
+    size: 45250,
+    originalname:
+      '5f21d9459d3a610b850fcd57_5ea9e5f3099b810b946c7234_97cfab8f5d3e6e963d8183e5ad70e734.png',
+    mimetype: 'image/png',
+    path:
+      '/files/601c54bead015e0bb6997f4d_5f21d9459d3a610b850fcd57_5ea9e5f3099b810b946c7234_97cfab8f5d3e6e963d8183e5ad70e734.png',
+  },
+  description: 'ок',
+  categoryId: '5e25c98d099b810b946c5d62',
   colors: ['белый', 'синий'],
 };
 

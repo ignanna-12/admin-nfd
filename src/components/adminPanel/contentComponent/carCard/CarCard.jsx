@@ -6,7 +6,7 @@ import Textarea from '../../../adminUIKit/textarea/Textarea';
 import Car from './car/Car';
 import styles from './CarCard.module.scss';
 import { useDispatch } from 'react-redux';
-import { setCarDescription } from '../../../../redux/actions/car_actions';
+import { setCarDescription } from '../../../../redux/actions/carActions';
 
 const useStyles = makeStyles({
   root: {

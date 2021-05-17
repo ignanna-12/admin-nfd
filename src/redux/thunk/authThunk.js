@@ -1,6 +1,6 @@
 import { postAccess, postAuth } from '../../api/api';
 import { setCookie } from '../../utils/setCookie';
-import { authFetch, authSuccess, authFailed, regSuccess } from '../actions/auth_actions';
+import { authFetch, authSuccess, authFailed, regSuccess } from '../actions/authActions';
 
 export const requestAccess = (userName, password) => {
   return async (dispatch) => {

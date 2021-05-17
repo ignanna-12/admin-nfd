@@ -6,7 +6,7 @@ import { CardContent } from '@material-ui/core';
 import LoginForm from '../loginForm/LoginForm';
 import Logo from '../../../assets/icons/Logo Icon.svg';
 import SVG from 'react-inlinesvg';
-import { userIdRegSel } from '../../../redux/selectors/auth_selectors';
+import { userIdRegSel } from '../../../redux/selectors/authSelectors';
 import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles({
@@ -15,6 +15,7 @@ const useStyles = makeStyles({
     height: 253,
     color: 'red',
     padding: '0',
+    borderRadius: 8,
   },
   title: {
     fontFamily: 'Helvetica',

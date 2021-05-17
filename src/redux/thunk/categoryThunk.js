@@ -1,5 +1,5 @@
 import { getCategory } from '../../api/api';
-import { setCategory } from '../actions/category_actions';
+import { setCategory } from '../actions/categoryActions';
 
 export const requestCategory = () => {
   return async (dispatch) => {

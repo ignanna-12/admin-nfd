@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { setCarFile, setImageCar } from '../../../redux/actions/car_actions';
+import { setCarFile, setImageCar } from '../../../redux/actions/carActions';
 import styles from './FileUpload.module.scss';
 
 const FileUpload = () => {
@@ -12,7 +12,11 @@ const FileUpload = () => {
     if (type == 'image') {
       setError(false);
       dispatch(setImageCar(URL.createObjectURL(file)));
-      dispatch(setCarFile(file));
+      let thumbnail = { mimetype: 'image/png' };
+      thumbnail.originalname = file.name;
+      thumbnail.size = file.size;
+      thumbnail.path = URL.createObjectURL(file);
+      dispatch(setCarFile(thumbnail));
     } else {
       setError(true);
     }

@@ -5,9 +5,8 @@ import {
   isErrorAuthSel,
   isLoadingAuthSel,
   userIdLoginSel,
-} from '../../../redux/selectors/auth_selectors';
-import { requestAccess, requestAuth } from '../../../redux/thunk/auth.thunk';
-import { requestRate } from '../../../redux/thunk/category.thunk';
+} from '../../../redux/selectors/authSelectors';
+import { requestAccess, requestAuth } from '../../../redux/thunk/authThunk';
 import ButtonBlue from '../../adminUIKit/ButtonBlue';
 import InputField from '../../adminUIKit/inputField/InputField';
 import Preloader from '../../adminUIKit/preloader/Preloader';
@@ -57,8 +56,8 @@ let LoginForm = ({ onSubmit }) => {
       />
       <InputField
         title={'Пароль'}
-        error={emptyPassword || isError}
-        errorReason={emptyPassword ? 'Заполните поле' : 'Пользователь не найден'}
+        error={emptyPassword}
+        errorReason={'Заполните поле'}
         password={'password'}
         onChange={(e) => {
           setPassword(e.target.value);

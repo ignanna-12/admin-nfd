@@ -1,4 +1,4 @@
-import { CarTypes } from '../constants/car_constants';
+import { CarTypes } from '../constants/carConstants';
 
 export const setImageCar = (image) => ({ type: CarTypes.SET_IMAGE_CAR, payload: image });
 export const setCarPriceMax = (price) => ({ type: CarTypes.SET_CAR_PRICEMAX, payload: price });

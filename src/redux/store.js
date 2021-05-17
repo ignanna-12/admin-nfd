@@ -2,9 +2,9 @@ import React from 'react';
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { reducer as formReducer } from 'redux-form';
-import authReducer from './redusers/auth.reducer';
-import carReducer from './redusers/car.reducer';
-import categoryReducer from './redusers/category.reducer';
+import authReducer from './redusers/authReducer';
+import carReducer from './redusers/carReducer';
+import categoryReducer from './redusers/categoryReducer';
 
 let reducers = combineReducers({
   form: formReducer,

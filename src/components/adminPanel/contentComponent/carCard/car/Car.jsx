@@ -4,10 +4,10 @@ import {
   CarCategoryIdSel,
   CarNameSel,
   imageCarSel,
-} from '../../../../../redux/selectors/car_selectors';
+} from '../../../../../redux/selectors/carSelectors';
 import styles from './Car.module.scss';
 import defCar from '../../../../../assets/images/4BCmG_w4dvvs_tzfWACzk8mLiPA-1920.jpg';
-import { CategorySel } from '../../../../../redux/selectors/category_selectors';
+import { CategorySel } from '../../../../../redux/selectors/categorySelectors';
 
 const Car = () => {
   const imageCar = useSelector(imageCarSel);

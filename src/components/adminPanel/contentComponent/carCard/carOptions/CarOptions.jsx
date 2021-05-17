@@ -11,7 +11,7 @@ import {
   setCarName,
   setCarPriceMax,
   setCarPriceMin,
-} from '../../../../../redux/actions/car_actions';
+} from '../../../../../redux/actions/carActions';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   CarCategoryIdSel,
@@ -21,11 +21,11 @@ import {
   CarPriceMaxSel,
   CarPriceMinSel,
   CarThumbnailSel,
-} from '../../../../../redux/selectors/car_selectors';
-import SelectInput from '../../../../adminUIKit/selectInput/SelectInput';
-import { CategorySel } from '../../../../../redux/selectors/category_selectors';
+} from '../../../../../redux/selectors/carSelectors';
+import { CategorySel } from '../../../../../redux/selectors/categorySelectors';
 import Checkbox from '../../../../adminUIKit/Checkbox';
-import { sendCar } from '../../../../../redux/thunk/car.thunk';
+import { sendCar } from '../../../../../redux/thunk/carThunk';
+import { getCookie } from '../../../../../utils/getCookie';
 
 const useStyles = makeStyles({
   root: {
@@ -184,6 +184,7 @@ const CarOptions = () => {
               dispatch(
                 sendCar(priceMin, priceMax, carName, thumbnail, description, carCategoryId, colors)
               );
+              console.log(thumbnail);
             }}
           />
         </div>

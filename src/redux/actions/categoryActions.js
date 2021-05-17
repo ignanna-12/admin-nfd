@@ -1,3 +1,3 @@
-import { CategoryTypes } from '../constants/category_constants';
+import { CategoryTypes } from '../constants/categoryConstants';
 
 export const setCategory = (category) => ({ type: CategoryTypes.SET_CATEGORY, payload: category });

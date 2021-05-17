@@ -1,8 +1,8 @@
-import { AuthTypes } from '../constants/auth_constants';
+import { AuthTypes } from '../constants/authConstants';
 
 let initialState = {
-  user_id_reg: '',
-  user_id_login: '',
+  userIdReg: '',
+  userIdLogin: '',
   isLoading: false,
   isError: false,
 };
@@ -20,14 +20,14 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        user_id_login: action.payload,
+        userIdLogin: action.payload,
       };
     }
     case AuthTypes.REG_SUCCESS: {
       return {
         ...state,
         isLoading: false,
-        user_id_reg: action.payload,
+        userIdReg: action.payload,
       };
     }
     case AuthTypes.AUTH_FAILED: {

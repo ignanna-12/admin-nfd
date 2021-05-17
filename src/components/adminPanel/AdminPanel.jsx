@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { requestCategory } from '../../redux/thunk/category.thunk';
+import { requestCategory } from '../../redux/thunk/categoryThunk';
 import styles from './AdminPanel.module.scss';
-import CarCard from './contentComponent/carCard/CarCard';
 import CarsList from './contentComponent/carsList/CarsList';
 import Cities from './contentComponent/cities/Cities';
 import ContentComponent from './contentComponent/ContentComponent';
