@@ -38,7 +38,7 @@ const EnterToAdminPanel = () => {
         <SVG src={Logo} />
         <p>Need for drive</p>
       </div>
-      <Card className={classes.root}>
+      <Card className={styles.card}>
         <CardContent>
           {userIdReg ? (
             <div style={{ color: '#0EC261' }}>Доступ разрешен</div>

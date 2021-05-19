@@ -26,10 +26,7 @@ const InputField = ({ title, defaultValue, error, onChange, password, errorReaso
     <div className={styles.inputField}>
       <p>{title}</p>
       <TextField
-        classes={{
-          root: classes.root,
-          outlined: classes.outlined,
-        }}
+        className={styles.textInput}
         defaultValue={defaultValue}
         error={error}
         helperText={error ? errorReason : ''}

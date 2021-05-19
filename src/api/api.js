@@ -1,13 +1,13 @@
 import * as axios from 'axios';
 import { getCookie } from '../utils/getCookie';
 
-const instance = axios.create({
+export const instance = axios.create({
   baseURL: process.env.NODE_ENV === 'production' ? 'https://api-factory.simbirsoft1.com/api/' : '',
   headers: {
     'X-Api-Factory-Application-Id': '5e25c641099b810b946c5d5b',
   },
 });
-const instanceAuth = axios.create({
+export const instanceAuth = axios.create({
   baseURL: process.env.NODE_ENV === 'production' ? 'https://api-factory.simbirsoft1.com/api/' : '',
   headers: {
     'X-Api-Factory-Application-Id': '5e25c641099b810b946c5d5b',
@@ -15,7 +15,7 @@ const instanceAuth = axios.create({
   },
 });
 
-const instanceAdmin = axios.create({
+export const instanceAdmin = axios.create({
   baseURL: process.env.NODE_ENV === 'production' ? 'https://api-factory.simbirsoft1.com/api/' : '',
   headers: {
     'X-Api-Factory-Application-Id': '5e25c641099b810b946c5d5b',

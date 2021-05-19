@@ -3,11 +3,32 @@
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-    height: 70px;
+    padding: 0 0 0 0;
+    margin: 0;
+}
+.inputField input {
+    padding: 8px 0 8px 10px,
 }
 .inputField p {
     font-family: 'Helvetica';
     font-size: 11px;
     margin-bottom: 5px;
     color: #495057;
+    outline: none;
+    padding: 0 0 0 0;
+}
+.textInput {    
+    font-family: Helvetica;
+    font-size: 11px;
+    line-height: 13px;
+    height: 30px;
+    width: 341px;
+}
+.inputField input :active{
+    border-color: #007BFF;
+}
+@media (max-width: 500px){
+    .textInput {
+        width: 220px;
+    }
 }
