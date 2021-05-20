@@ -184,7 +184,7 @@ const CarOptions = () => {
               dispatch(
                 sendCar(priceMin, priceMax, carName, thumbnail, description, carCategoryId, colors)
               );
-              console.log(thumbnail);
+              console.log(getCookie('access_token'));
             }}
           />
         </div>

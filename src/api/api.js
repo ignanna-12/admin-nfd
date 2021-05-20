@@ -86,3 +86,9 @@ export const getOrder = (orderId) => {
     return response.data;
   });
 };
+
+export const getOrders = () => {
+  return instanceAdmin.get('db/order?page=2&limit=20').then((response) => {
+    return response.data;
+  });
+};

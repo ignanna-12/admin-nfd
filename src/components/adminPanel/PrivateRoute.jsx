@@ -9,7 +9,9 @@ const PrivateRoute = () => {
   const userIdLogin = useSelector(userIdLoginSel);
 
   return (
-    <div>{userIdLogin ? <Route path="/admin" component={AdminPanel} /> : <Redirect to="/" />}</div>
+    <div style={{ height: '100%' }}>
+      {userIdLogin ? <Route path="/admin" component={AdminPanel} /> : <Redirect to="/" />}
+    </div>
   );
 };
 export default PrivateRoute;
