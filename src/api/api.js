@@ -87,8 +87,8 @@ export const getOrder = (orderId) => {
   });
 };
 
-export const getOrders = () => {
-  return instanceAdmin.get('db/order?page=2&limit=20').then((response) => {
+export const getOrders = (page) => {
+  return instanceAdmin.get('db/order?page=' + page + '&limit=20').then((response) => {
     return response.data;
   });
 };
