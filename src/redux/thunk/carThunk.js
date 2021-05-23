@@ -12,7 +12,7 @@ export const sendCar = (priceMin, priceMax, name, thumbnail, description, catego
         categoryId,
         colors
       );
-      console.log(data);
+      alert(data);
     } catch (error) {
       alert(error);
     }

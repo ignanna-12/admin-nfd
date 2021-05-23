@@ -16,28 +16,15 @@ const Orders = () => {
   const isLoading = useSelector(isLoadingOrdersSel);
   const isError = useSelector(isErrorOrdersSel);
   const orders = useSelector(OrdersSel);
-  const [data, setData] = useState([]);
-  const titles = [
-    'статус',
-    'город',
-    'пункт',
-    'модель',
-    'цвет',
-    'стоимость',
-    'период',
-    'полный бак',
-    'детское кресло',
-    'правый руль',
-  ];
+  const [titles, setTitles] = useState([]);
 
   useEffect(() => {
-    dispatch(requestOrders(100));
+    dispatch(requestOrders());
   }, []);
 
   useEffect(() => {
-    setData(orders.data);
+    setTitles(Object.keys(orders.fields));
   }, [orders]);
-
   return (
     <div className={styles.block}>
       <Card>
@@ -45,14 +32,16 @@ const Orders = () => {
         {isError && <h1>Не удалось загрузить заказы</h1>}
         <div className={styles.titleRow}>
           {titles &&
-            titles.map((v, i) => (
+            titles.map((o, i) => (
               <h1 key={i} className={styles.h1}>
-                {v}
+                {o}
               </h1>
             ))}
         </div>
-        {data &&
-          data.map((o, i) => <TableRow striped={!(i % 2)} title={titles} value={o} key={i} />)}
+        {orders &&
+          orders.data.map((o, i) => (
+            <TableRow striped={!(i % 2)} title={titles} value={o} key={i} />
+          ))}
       </Card>
     </div>
   );

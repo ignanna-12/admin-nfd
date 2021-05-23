@@ -1,7 +1,7 @@
 import { OrdersTypes } from '../constants/ordersConstants';
 
 let initialState = {
-  orders: { fields: {} },
+  orders: {},
   isLoading: false,
   isError: false,
 };
