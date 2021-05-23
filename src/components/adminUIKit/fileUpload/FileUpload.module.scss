@@ -1,0 +1,48 @@
+.input_file {
+    height: 29px;
+    width: 250px;
+    padding: 0px;
+    margin: 10px 0 10px 50px;
+    border-radius: 10px;
+   }
+.input_file input[type=file] {
+    opacity: 0;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+    position: absolute;
+    z-index: 2;
+    cursor: pointer;
+    height: 29px;
+    width: 250px;
+}
+.fake_file{
+    position: absolute;
+    z-index: 1;
+    cursor: pointer;
+    height: 29px;
+    width: 250px;
+}
+.fake_file_error{
+    background-color: red;
+}
+.fake_file_input {
+    width: 170px;
+    height: 29px;        
+    font-family: 'Helvetica';
+    color:#495057;
+    font-size: 11px;
+    line-height: 12.65px;
+    border-radius: 3px;
+    border: 1px solid #BECAD6;
+    padding: 0 0 0 8px;
+}
+.fake_file_button{
+    width: 65.5px;
+    height: 31px;        
+    font-family: 'Helvetica';
+    color:#495057;
+    font-size: 11px;
+    line-height: 12.65px;
+    border-radius: 0 3px 3px 0;
+    border: 1px solid #BECAD6;
+    border-left: 0;
+}

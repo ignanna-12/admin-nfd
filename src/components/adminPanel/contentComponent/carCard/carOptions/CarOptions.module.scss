@@ -1,0 +1,45 @@
+.car_options{
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.title {
+    margin-top: 16px;
+    margin-left: 16px;
+    font-family: Helvetica;
+    font-size: 18px;
+    color: #3D5170;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    margin-left: 16px;
+    :first-child{
+    margin-right: 16px;
+    }
+}
+.colors {
+    display: flex;
+    flex-direction: column;
+}
+.color_row {
+    width: min-content;
+    display: flex;
+    flex-direction: row;
+    margin-left: 16px;    
+    align-items:flex-end;
+}
+.color_row button {
+    width: 30px;
+    height: 30px;
+    outline: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+.colors_check {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+}

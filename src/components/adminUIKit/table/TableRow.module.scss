@@ -1,0 +1,20 @@
+.m {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-family: Helvetica;
+    color: #818EA3;
+    font-size: 12px;
+    font-weight: 500;
+    text-align: left;
+    margin-left: 32px;
+    margin-right: 32px;
+}
+.m_striped {
+    @extend .m;
+    background-color: #EEEEEE;
+}
+.name_column {
+    width: 150px;
+}

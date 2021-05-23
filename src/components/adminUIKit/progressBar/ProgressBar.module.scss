@@ -1,0 +1,33 @@
+.progress_bar{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid #868E96;
+    border-bottom: 1px solid #868E96;
+}
+.top_row{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #868E96;
+    font-family: 'Helvetica';
+    font-size: 13px;
+    margin-top: 8px;
+}
+.progress_line{
+    width: 90%;
+    margin-top: 8px;
+    height: 5px;
+    border: 1px solid #979797;
+    border-radius: 3px;
+    box-shadow: inset 0 0 2px;
+}
+.done_line {
+    height: 5px;
+    border-radius: 3px;
+    background-color: #007BFF;
+
+}

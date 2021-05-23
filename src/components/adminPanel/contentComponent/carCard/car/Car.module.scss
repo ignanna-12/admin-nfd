@@ -1,0 +1,35 @@
+.cell {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    outline: none;
+}
+.model{
+    font-family: 'Helvetica';
+    font-size: 24.5px;
+    line-height: 21px;
+    color: #3D5170;
+}
+.categ{
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12.5px;
+    line-height: 16px;
+    color: #818EA3;
+}
+.car_image{
+    width: 387px;
+    height: 185px;
+}
+.car_image img{
+    object-fit:contain;
+    width:inherit;
+    height:inherit;
+}
+
+@media (max-width: 900px){
+    .cell {        
+    width: 90%;
+    }
+}
