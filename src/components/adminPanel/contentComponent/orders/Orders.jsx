@@ -45,7 +45,11 @@ const Orders = () => {
   return (
     <div className={styles.block}>
       <Card>
-        {isLoading && <Preloader />}
+        {isLoading && (
+          <div className={styles.for_preloader}>
+            <Preloader />
+          </div>
+        )}
         {isError && <h1>Не удалось загрузить заказы</h1>}
         <div className={styles.titleRow}>
           {titles &&

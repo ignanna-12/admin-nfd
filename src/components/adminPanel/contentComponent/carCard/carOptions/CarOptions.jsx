@@ -26,6 +26,7 @@ import { CategorySel } from '../../../../../redux/selectors/categorySelectors';
 import Checkbox from '../../../../adminUIKit/Checkbox';
 import { sendCar } from '../../../../../redux/thunk/carThunk';
 import { getCookie } from '../../../../../utils/getCookie';
+import { NavLink } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
@@ -177,6 +178,9 @@ const CarOptions = () => {
             })}
           </div>
         </div>
+        <NavLink to="/error">
+          <button>жми</button>
+        </NavLink>
         <div className={styles.row}>
           <ButtonBlue
             title={'Сохранить'}
