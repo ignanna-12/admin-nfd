@@ -27,6 +27,7 @@ import Checkbox from '../../../../adminUIKit/Checkbox';
 import { sendCar } from '../../../../../redux/thunk/carThunk';
 import { getCookie } from '../../../../../utils/getCookie';
 import { NavLink } from 'react-router-dom';
+import AutocompleteNFD from '../../../../adminUIKit/AutocompleteNFD';
 
 const useStyles = makeStyles({
   root: {
@@ -54,21 +55,6 @@ const useStyles = makeStyles({
     color: '#3D5170',
     marginTop: '0',
     marginBottom: '16px',
-  },
-  autocomplete: {
-    marginTop: 20,
-    fontSize: 13,
-    fontFamily: 'Helvetica',
-    '& .MuiAutocomplete-inputRoot[class*="MuiOutlinedInput-root"]': {
-      marginTop: 8,
-      width: 334,
-      padding: 0,
-      fontSize: 13,
-      fontFamily: 'Helvetica',
-    },
-    '& .MuiAutocomplete-paper': {
-      fontSize: 13,
-    },
   },
 });
 const CarOptions = () => {
@@ -99,7 +85,19 @@ const CarOptions = () => {
               dispatch(setCarName(e.target.value));
             }}
           />
-          <Autocomplete
+          <AutocompleteNFD
+            options={category}
+            getOptionLabel={(category) => category.name}
+            label={'Выберите категорию автомобиля'}
+            onChange={(v) => {
+              for (var i in category) {
+                if (category[i].name == v.target.textContent) {
+                  dispatch(setCarCategoryId(category[i].id));
+                }
+              }
+            }}
+          />
+          {/* <Autocomplete
             className={classes.autocomplete}
             options={category}
             getOptionLabel={(category) => category.name}
@@ -118,7 +116,7 @@ const CarOptions = () => {
                 }
               }
             }}
-          />
+          /> */}
         </div>
         <div className={styles.row}>
           <InputField

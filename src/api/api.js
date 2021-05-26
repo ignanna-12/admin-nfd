@@ -92,3 +92,9 @@ export const getOrders = (page) => {
     return response.data;
   });
 };
+
+export const getFullOrders = () => {
+  return instanceAdmin.get('db/order').then((response) => {
+    return response.data;
+  });
+};

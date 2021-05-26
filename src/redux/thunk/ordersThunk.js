@@ -1,5 +1,5 @@
-import { getOrders } from '../../api/api';
-import { ordersFailed, ordersFetch, setOrders } from '../actions/ordersActions';
+import { getFullOrders, getOrders } from '../../api/api';
+import { ordersFailed, ordersFetch, setFullOrders, setOrders } from '../actions/ordersActions';
 
 export const requestOrders = (page) => {
   return async (dispatch) => {
@@ -9,6 +9,17 @@ export const requestOrders = (page) => {
       dispatch(setOrders(data));
     } catch (error) {
       dispatch(ordersFailed());
+    }
+  };
+};
+
+export const requestFullOrders = () => {
+  return async (dispatch) => {
+    try {
+      let data = await getFullOrders();
+      dispatch(setFullOrders(data));
+    } catch (error) {
+      console.log(error);
     }
   };
 };

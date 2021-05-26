@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styles from './Orders.module.scss';
 import TableRow from '../../../adminUIKit/table/TableRow';
-import { requestOrders } from '../../../../redux/thunk/ordersThunk';
+import { requestFullOrders, requestOrders } from '../../../../redux/thunk/ordersThunk';
 import {
+  FullOrdersSel,
   isErrorOrdersSel,
   isLoadingOrdersSel,
   OrdersSel,
@@ -12,12 +13,15 @@ import Preloader from '../../../adminUIKit/preloader/Preloader';
 import { Card } from '@material-ui/core';
 import Pagination from 'react-pagination-library';
 import 'react-pagination-library/build/css/index.css';
+import { arrayUniqValues } from '../../../../utils/arrayUniqValues';
 
 const Orders = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(isLoadingOrdersSel);
   const isError = useSelector(isErrorOrdersSel);
   const orders = useSelector(OrdersSel);
+  const fullOrders = useSelector(FullOrdersSel);
+  const [statuses, setStatuses] = useState([]);
   const titles = [
     'статус',
     'город',
@@ -36,6 +40,11 @@ const Orders = () => {
   useEffect(() => {
     dispatch(requestOrders(currentPage));
   }, [currentPage]);
+
+  useEffect(() => {
+    dispatch(requestFullOrders());
+    setStatuses(arrayUniqValues(fullOrders.data, 'orderStatusId', 'name'));
+  }, []);
 
   const changeCurrentPage = (pageNumber) => {
     dispatch(requestOrders(pageNumber));
@@ -68,6 +77,7 @@ const Orders = () => {
             changeCurrentPage={changeCurrentPage}
             theme="circle"
           />
+          {console.log(statuses)}
         </div>
       </Card>
     </div>
