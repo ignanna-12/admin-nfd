@@ -14,6 +14,8 @@ import { Card } from '@material-ui/core';
 import Pagination from 'react-pagination-library';
 import 'react-pagination-library/build/css/index.css';
 import { arrayUniqValues } from '../../../../utils/arrayUniqValues';
+import AutocompleteNFD from '../../../adminUIKit/autocomplete/AutocompleteNFD';
+import { filterFullEntities } from '../../../../utils/filterFullEntities';
 
 const Orders = () => {
   const dispatch = useDispatch();
@@ -22,6 +24,8 @@ const Orders = () => {
   const orders = useSelector(OrdersSel);
   const fullOrders = useSelector(FullOrdersSel);
   const [statuses, setStatuses] = useState([]);
+  const [filterOrders, setFilterOrders] = useState({});
+  const [renderOrders, setRenderOrders] = useState(orders);
   const titles = [
     'статус',
     'город',
@@ -39,6 +43,7 @@ const Orders = () => {
 
   useEffect(() => {
     dispatch(requestOrders(currentPage));
+    filterOrders && setRenderOrders(filterOrders);
   }, [currentPage]);
 
   useEffect(() => {
@@ -60,6 +65,20 @@ const Orders = () => {
           </div>
         )}
         {isError && <h1>Не удалось загрузить заказы</h1>}
+        {statuses.length > 0 && (
+          <div className={styles.selector}>
+            <AutocompleteNFD
+              options={statuses}
+              getOptionLabel={(statuses) => statuses}
+              label={'Статус'}
+              onChange={(v) => {
+                setFilterOrders(
+                  filterFullEntities(fullOrders.data, 'orderStatusId', 'name', v.target.textContent)
+                );
+              }}
+            />
+          </div>
+        )}
         <div className={styles.titleRow}>
           {titles &&
             titles.map((o, i) => (
@@ -68,8 +87,8 @@ const Orders = () => {
               </h1>
             ))}
         </div>
-        {orders.data &&
-          orders.data.map((o, i) => <TableRow striped={!(i % 2)} value={o} key={i} />)}
+        {renderOrders.data &&
+          renderOrders.data.map((o, i) => <TableRow striped={!(i % 2)} value={o} key={i} />)}
         <div className={styles.page}>
           <Pagination
             currentPage={currentPage}
@@ -77,7 +96,7 @@ const Orders = () => {
             changeCurrentPage={changeCurrentPage}
             theme="circle"
           />
-          {console.log(statuses)}
+          {console.log(filterOrders)}
         </div>
       </Card>
     </div>

@@ -1,8 +1,15 @@
+.card {
+    margin-top: 48px;
+    margin-left: 16px;
+    height: 700px;
+    padding: 0;
+    align-items: center;
+}
 .car_options{
     height: 500px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 .title {
     margin-top: 16px;
@@ -14,10 +21,6 @@
 .row{
     display: flex;
     flex-direction: row;
-    margin-left: 16px;
-    :first-child{
-    margin-right: 16px;
-    }
 }
 .colors {
     display: flex;
