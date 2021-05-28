@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { requestCategory } from '../../redux/thunk/categoryThunk';
+import { requestCity } from '../../redux/thunk/cityThunk';
+import { requestOrderStatus } from '../../redux/thunk/ordersThunk';
 import styles from './AdminPanel.module.scss';
 import CarsList from './contentComponent/carsList/CarsList';
 import Cities from './contentComponent/cities/Cities';
@@ -15,6 +17,8 @@ const AdminPanel = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(requestCategory());
+    dispatch(requestOrderStatus());
+    dispatch(requestCity());
   }, []);
   const [activePage, setActivePage] = useState(0);
   return (

@@ -2,30 +2,29 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styles from './Orders.module.scss';
 import TableRow from '../../../adminUIKit/table/TableRow';
-import { requestFullOrders, requestOrders } from '../../../../redux/thunk/ordersThunk';
+import { requestOrders } from '../../../../redux/thunk/ordersThunk';
 import {
-  FullOrdersSel,
   isErrorOrdersSel,
   isLoadingOrdersSel,
   OrdersSel,
+  orderStatusSel,
 } from '../../../../redux/selectors/ordersSelectors';
 import Preloader from '../../../adminUIKit/preloader/Preloader';
 import { Card } from '@material-ui/core';
 import Pagination from 'react-pagination-library';
 import 'react-pagination-library/build/css/index.css';
-import { arrayUniqValues } from '../../../../utils/arrayUniqValues';
 import AutocompleteNFD from '../../../adminUIKit/autocomplete/AutocompleteNFD';
-import { filterFullEntities } from '../../../../utils/filterFullEntities';
+import { CitySel } from '../../../../redux/selectors/citySelectors';
 
 const Orders = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(isLoadingOrdersSel);
   const isError = useSelector(isErrorOrdersSel);
   const orders = useSelector(OrdersSel);
-  const fullOrders = useSelector(FullOrdersSel);
-  const [statuses, setStatuses] = useState([]);
-  const [filterOrders, setFilterOrders] = useState({});
-  const [renderOrders, setRenderOrders] = useState(orders);
+  const orderStatus = useSelector(orderStatusSel);
+  const cities = useSelector(CitySel);
+  const [status, setStatus] = useState('');
+  const [city, setCity] = useState('');
   const titles = [
     'статус',
     'город',
@@ -39,17 +38,11 @@ const Orders = () => {
     'правый руль',
   ];
   const [currentPage, setcurrentPage] = useState(2);
-  const count = Math.floor(orders.count / 20);
+  const count = Math.floor(orders.count / 15);
 
   useEffect(() => {
-    dispatch(requestOrders(currentPage));
-    filterOrders && setRenderOrders(filterOrders);
-  }, [currentPage]);
-
-  useEffect(() => {
-    dispatch(requestFullOrders());
-    setStatuses(arrayUniqValues(fullOrders.data, 'orderStatusId', 'name'));
-  }, []);
+    dispatch(requestOrders(currentPage, status, city));
+  }, [currentPage, status, city]);
 
   const changeCurrentPage = (pageNumber) => {
     dispatch(requestOrders(pageNumber));
@@ -65,20 +58,34 @@ const Orders = () => {
           </div>
         )}
         {isError && <h1>Не удалось загрузить заказы</h1>}
-        {statuses.length > 0 && (
-          <div className={styles.selector}>
-            <AutocompleteNFD
-              options={statuses}
-              getOptionLabel={(statuses) => statuses}
-              label={'Статус'}
-              onChange={(v) => {
-                setFilterOrders(
-                  filterFullEntities(fullOrders.data, 'orderStatusId', 'name', v.target.textContent)
-                );
-              }}
-            />
-          </div>
-        )}
+        <div className={styles.selector}>
+          <AutocompleteNFD
+            options={orderStatus}
+            getOptionLabel={(orderStatus) => orderStatus.name}
+            label={'Статус'}
+            onChange={(v) => {
+              for (var i in orderStatus) {
+                if (orderStatus[i].name == v.target.textContent) {
+                  setStatus('&orderStatusId[id]=' + orderStatus[i].id);
+                }
+              }
+            }}
+            onClear={setStatus('')}
+          />
+          <AutocompleteNFD
+            options={cities}
+            getOptionLabel={(cities) => cities.name}
+            label={'Город'}
+            onChange={(v) => {
+              for (var i in cities) {
+                if (cities[i].name == v.target.textContent) {
+                  setCity('&cityId[id]=' + cities[i].id);
+                }
+              }
+            }}
+            onClear={setCity('')}
+          />
+        </div>
         <div className={styles.titleRow}>
           {titles &&
             titles.map((o, i) => (
@@ -87,8 +94,8 @@ const Orders = () => {
               </h1>
             ))}
         </div>
-        {renderOrders.data &&
-          renderOrders.data.map((o, i) => <TableRow striped={!(i % 2)} value={o} key={i} />)}
+        {orders.data &&
+          orders.data.map((o, i) => <TableRow striped={!(i % 2)} value={o} key={i} />)}
         <div className={styles.page}>
           <Pagination
             currentPage={currentPage}
@@ -96,7 +103,6 @@ const Orders = () => {
             changeCurrentPage={changeCurrentPage}
             theme="circle"
           />
-          {console.log(filterOrders)}
         </div>
       </Card>
     </div>

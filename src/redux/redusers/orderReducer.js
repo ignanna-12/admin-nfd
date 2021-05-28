@@ -3,6 +3,7 @@ import { OrdersTypes } from '../constants/ordersConstants';
 let initialState = {
   orders: {},
   fullOrders: {},
+  orderStatus: [],
   isLoading: false,
   isError: false,
 };
@@ -34,6 +35,12 @@ const ordersReducer = (state = initialState, action) => {
       return {
         ...state,
         fullOrders: action.payload,
+      };
+    }
+    case OrdersTypes.SET_ORDER_STATUS: {
+      return {
+        ...state,
+        orderStatus: action.payload,
       };
     }
     default:

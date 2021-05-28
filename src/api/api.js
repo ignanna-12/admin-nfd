@@ -81,16 +81,24 @@ export const getCategory = () => {
   });
 };
 
+export const getOrderStatus = () => {
+  return instance.get('db/orderStatus/').then((response) => {
+    return response.data;
+  });
+};
+
 export const getOrder = (orderId) => {
   return instance.get('db/order/' + orderId).then((response) => {
     return response.data;
   });
 };
 
-export const getOrders = (page) => {
-  return instanceAdmin.get('db/order?page=' + page + '&limit=20').then((response) => {
-    return response.data;
-  });
+export const getOrders = (page, orderStatusId, city) => {
+  return instanceAdmin
+    .get('db/order?page=' + page + '&limit=15' + orderStatusId + city)
+    .then((response) => {
+      return response.data;
+    });
 };
 
 export const getFullOrders = () => {
