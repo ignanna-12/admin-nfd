@@ -6,6 +6,7 @@ import EmojiTransportation from '@material-ui/icons/EmojiTransportation';
 import DirectionsCar from '@material-ui/icons/DirectionsCar';
 import Commute from '@material-ui/icons/Commute';
 import Apartment from '@material-ui/icons/Apartment';
+import Reorder from '@material-ui/icons/Reorder';
 import SVG from 'react-inlinesvg';
 import { List, ListItem, ListItemIcon, ListItemText, makeStyles } from '@material-ui/core';
 
@@ -50,26 +51,33 @@ const SideBar = ({ onClick }) => {
         <p>Need for drive</p>
       </div>
       <List classes={{ root: classes.root }}>
-        {['Карточка автомобиля', 'Список авто', 'Города', 'Пункты выдачи', 'Заказы'].map(
-          (text, index) => (
-            <ListItem button key={text} onClick={() => onClick(index)}>
-              <ListItemIcon>
-                {index == 0 ? (
-                  <DirectionsCar />
-                ) : index == 1 ? (
-                  <Commute />
-                ) : index == 2 ? (
-                  <Apartment />
-                ) : index == 3 ? (
-                  <EmojiTransportation />
-                ) : (
-                  <DynamicFeed />
-                )}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          )
-        )}
+        {[
+          'Карточка автомобиля',
+          'Список авто',
+          'Города',
+          'Пункты выдачи',
+          'Карточка заказа',
+          'Заказы',
+        ].map((text, index) => (
+          <ListItem button key={text} onClick={() => onClick(index)}>
+            <ListItemIcon>
+              {index == 0 ? (
+                <DirectionsCar />
+              ) : index == 1 ? (
+                <Commute />
+              ) : index == 2 ? (
+                <Apartment />
+              ) : index == 3 ? (
+                <EmojiTransportation />
+              ) : index == 4 ? (
+                <Reorder />
+              ) : (
+                <DynamicFeed />
+              )}
+            </ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
       </List>
     </div>
   );

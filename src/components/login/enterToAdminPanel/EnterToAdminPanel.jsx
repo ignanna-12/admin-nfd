@@ -15,7 +15,7 @@ const useStyles = makeStyles({
     height: 253,
     color: 'red',
     padding: '0',
-    borderRadius: 8,
+    borderRadius: '20px',
   },
   title: {
     fontFamily: 'Helvetica',

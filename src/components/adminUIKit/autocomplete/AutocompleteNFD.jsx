@@ -7,6 +7,7 @@ const useStyles = makeStyles({
   root: {
     '& .MuiAutocomplete-inputRoot[class*="MuiOutlinedInput-root"]': {
       padding: 0,
+      fontSize: '13px',
     },
   },
 });

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router';
 import ButtonBlue from '../../adminUIKit/ButtonBlue';
 import Footer from '../footer/Footer';
 import Header from '../header/Header';
@@ -16,7 +17,7 @@ const Error = () => {
               <div className={styles.h1}>500</div>
               <div className={styles.text}>Что то пошло не так</div>
               <div className={styles.more_text}>Попробуйте перезагрузить страницу</div>
-              <ButtonBlue title={'Назад'} onClick={() => window.history.back()} />
+              <ButtonBlue title={'Назад'} onClick={() => <Redirect to="/" />} />
             </div>
           </div>
           <Footer />

@@ -7,6 +7,7 @@ import styles from './AdminPanel.module.scss';
 import CarsList from './contentComponent/carsList/CarsList';
 import Cities from './contentComponent/cities/Cities';
 import ContentComponent from './contentComponent/ContentComponent';
+import OrderCard from './contentComponent/orderCard/OrderCard';
 import Orders from './contentComponent/orders/Orders';
 import Points from './contentComponent/points/Points';
 import Footer from './footer/Footer';
@@ -21,6 +22,7 @@ const AdminPanel = () => {
     dispatch(requestCity());
   }, []);
   const [activePage, setActivePage] = useState(0);
+  const [orderId, setOrderId] = useState('');
   return (
     <div className={styles.panel}>
       <div className={styles.header_sidebar}>
@@ -36,8 +38,10 @@ const AdminPanel = () => {
               <Cities />
             ) : activePage == 3 ? (
               <Points />
+            ) : activePage == 4 ? (
+              <OrderCard id={orderId} />
             ) : (
-              activePage == 4 && <Orders />
+              activePage == 5 && <Orders setActivePage={setActivePage} setOrderId={setOrderId} />
             )}
           </div>
           <Footer />

@@ -1,3 +1,4 @@
+import { Redirect } from 'react-router';
 import { getFullOrders, getOrders, getOrderStatus } from '../../api/api';
 import {
   ordersFailed,
@@ -7,11 +8,11 @@ import {
   setOrderStatus,
 } from '../actions/ordersActions';
 
-export const requestOrders = (page, status, city) => {
+export const requestOrders = (page, status, city, dateFrom, dateTo) => {
   return async (dispatch) => {
     try {
       dispatch(ordersFetch());
-      let data = await getOrders(page, status, city);
+      let data = await getOrders(page, status, city, dateFrom, dateTo);
       dispatch(setOrders(data));
     } catch (error) {
       dispatch(ordersFailed());

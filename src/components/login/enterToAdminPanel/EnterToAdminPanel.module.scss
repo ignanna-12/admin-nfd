@@ -19,11 +19,11 @@
         margin-right: 11.5px;
     }
 }
-.card {
+.card {  
+    border-radius: 8px !important;  
     width: 376px;
     height: 253px;
     padding: 0;
-    border-radius: 8px;
 }
 @media (max-width: 500px){
     .card {

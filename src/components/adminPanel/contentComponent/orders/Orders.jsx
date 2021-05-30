@@ -15,8 +15,15 @@ import Pagination from 'react-pagination-library';
 import 'react-pagination-library/build/css/index.css';
 import AutocompleteNFD from '../../../adminUIKit/autocomplete/AutocompleteNFD';
 import { CitySel } from '../../../../redux/selectors/citySelectors';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { Redirect } from 'react-router';
+import ButtonRed from '../../../adminUIKit/ButtonRed';
+import ButtonBlue from '../../../adminUIKit/ButtonBlue';
+import { NavLink } from 'react-router-dom';
+import OrderCard from '../orderCard/OrderCard';
 
-const Orders = () => {
+const Orders = ({ setActivePage, setOrderId }) => {
   const dispatch = useDispatch();
   const isLoading = useSelector(isLoadingOrdersSel);
   const isError = useSelector(isErrorOrdersSel);
@@ -25,6 +32,10 @@ const Orders = () => {
   const cities = useSelector(CitySel);
   const [status, setStatus] = useState('');
   const [city, setCity] = useState('');
+  const [dateFrom, setDateFrom] = useState('');
+  const [selectedDateFrom, setSelectedDateFrom] = useState(new Date());
+  const [dateTo, setDateTo] = useState('');
+  const [selectedDateTo, setSelectedDateTo] = useState(new Date());
   const titles = [
     'статус',
     'город',
@@ -37,12 +48,12 @@ const Orders = () => {
     'детское кресло',
     'правый руль',
   ];
-  const [currentPage, setcurrentPage] = useState(2);
+  const [currentPage, setcurrentPage] = useState(1);
   const count = Math.floor(orders.count / 15);
 
   useEffect(() => {
-    dispatch(requestOrders(currentPage, status, city));
-  }, [currentPage, status, city]);
+    dispatch(requestOrders());
+  }, []);
 
   const changeCurrentPage = (pageNumber) => {
     dispatch(requestOrders(pageNumber));
@@ -57,34 +68,88 @@ const Orders = () => {
             <Preloader />
           </div>
         )}
-        {isError && <h1>Не удалось загрузить заказы</h1>}
-        <div className={styles.selector}>
-          <AutocompleteNFD
-            options={orderStatus}
-            getOptionLabel={(orderStatus) => orderStatus.name}
-            label={'Статус'}
-            onChange={(v) => {
-              for (var i in orderStatus) {
-                if (orderStatus[i].name == v.target.textContent) {
-                  setStatus('&orderStatusId[id]=' + orderStatus[i].id);
+        {isError && <Redirect to="/error" />}
+        <div className={styles.selectors}>
+          <div className={styles.selector}>
+            <AutocompleteNFD
+              options={orderStatus}
+              getOptionLabel={(orderStatus) => orderStatus.name}
+              label={'Статус'}
+              onChange={(v) => {
+                for (var i in orderStatus) {
+                  if (orderStatus[i].name == v.target.textContent) {
+                    setStatus('&orderStatusId[id]=' + orderStatus[i].id);
+                  }
                 }
-              }
-            }}
-            onClear={setStatus('')}
-          />
-          <AutocompleteNFD
-            options={cities}
-            getOptionLabel={(cities) => cities.name}
-            label={'Город'}
-            onChange={(v) => {
-              for (var i in cities) {
-                if (cities[i].name == v.target.textContent) {
-                  setCity('&cityId[id]=' + cities[i].id);
+              }}
+            />
+          </div>
+          <div className={styles.selector}>
+            <AutocompleteNFD
+              options={cities}
+              getOptionLabel={(cities) => cities.name}
+              label={'Город'}
+              onChange={(v) => {
+                for (var i in cities) {
+                  if (cities[i].name == v.target.textContent) {
+                    setCity('&cityId[id]=' + cities[i].id);
+                  }
                 }
-              }
-            }}
-            onClear={setCity('')}
-          />
+              }}
+            />
+          </div>
+          <div className={styles.date}>
+            <div className={styles.title}>Даты создания заказа</div>
+            <div className={styles.picks}>
+              <div className={styles.withPick}>
+                <p> с</p>
+                <DatePicker
+                  className={styles.datapick}
+                  selected={selectedDateFrom}
+                  onChange={(date) => {
+                    setDateFrom('&dateFrom[$gt]=' + date);
+                    setSelectedDateFrom(date);
+                  }}
+                  dateFormat="dd.MM.yy"
+                  isClearable
+                />
+              </div>
+              <div className={styles.withPick}>
+                <p>по</p>
+                <DatePicker
+                  className={styles.datapick}
+                  selected={selectedDateTo}
+                  onChange={(date) => {
+                    setDateTo('&dateTo[$lt]=' + date);
+                    setSelectedDateTo(date);
+                  }}
+                  dateFormat="dd.MM.yy"
+                  isClearable
+                />
+              </div>
+            </div>
+          </div>
+          <div className={styles.buttons}>
+            <ButtonRed
+              title="Reset"
+              onClick={() => {
+                setStatus('');
+                setCity('');
+                setDateFrom('');
+                setSelectedDateFrom(new Date());
+                setDateTo('');
+                setSelectedDateTo(new Date());
+                setcurrentPage(1);
+                dispatch(requestOrders(currentPage, status, city, dateFrom, dateTo));
+              }}
+            />
+            <ButtonBlue
+              title="Apply"
+              onClick={() => {
+                dispatch(requestOrders(currentPage, status, city, dateFrom, dateTo));
+              }}
+            />
+          </div>
         </div>
         <div className={styles.titleRow}>
           {titles &&
@@ -95,7 +160,19 @@ const Orders = () => {
             ))}
         </div>
         {orders.data &&
-          orders.data.map((o, i) => <TableRow striped={!(i % 2)} value={o} key={i} />)}
+          orders.data.map((o, i) => (
+            <div key={i}>
+              <button
+                className={styles.row_button}
+                onClick={() => {
+                  setActivePage(4);
+                  setOrderId(o.id);
+                }}
+              >
+                <TableRow striped={!(i % 2)} value={o} />
+              </button>
+            </div>
+          ))}
         <div className={styles.page}>
           <Pagination
             currentPage={currentPage}

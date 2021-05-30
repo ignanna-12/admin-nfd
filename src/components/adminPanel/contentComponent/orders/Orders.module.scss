@@ -35,8 +35,63 @@
     z-index: 10;
     text-align: center;
 }
-.selector {
+.selectors {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    height: max-content;
+    justify-content: space-evenly;
+    align-items:center;
+}
+.selector{
+    width: 150px;
+}
+.date {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.datapick{
+    margin-left: 8px;
+    border-bottom: 1px solid #999999;
+    border-top: none;
+    border-left: none;
+    border-right: none;    
+    $datepicker__selected-color: #0EC261 !important;
+    font-family: Helvetica;
+    font-size: 11px;
+}
+.picks{
+    display: flex;
+    width:fit-content;
+    flex-direction: row;
+    align-items: flex-end;
+}
+.withPick{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+.withPick p{
+    font-family: Helvetica;
+    font-size: 11px;
+    color: #868E96;
+}
+.title {
+    color: #868E96;
+    font-size: 11px;
+    font-family: Helvetica;
+}
+.buttons {
+    display: flex;
+    flex-direction: row;
+    :first-child {margin-right: 10px;}
+}
+.row_button {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    width: 100%;
 }

@@ -54,6 +54,7 @@ let LoginForm = ({ onSubmit }) => {
           setEmptyEmail(false);
         }}
       />
+      <div className={styles.space}></div>
       <InputField
         title={'Пароль'}
         error={emptyPassword}

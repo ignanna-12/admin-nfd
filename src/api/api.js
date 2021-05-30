@@ -52,7 +52,7 @@ export const postAuth = (username, password) => {
 };
 
 export const getCities = () => {
-  return instance.get('db/city').then((response) => {
+  return instance.get('db/city/').then((response) => {
     return response.data;
   });
 };
@@ -93,9 +93,9 @@ export const getOrder = (orderId) => {
   });
 };
 
-export const getOrders = (page, orderStatusId, city) => {
+export const getOrders = (page, orderStatusId, city, dateFrom, dateTo) => {
   return instanceAdmin
-    .get('db/order?page=' + page + '&limit=15' + orderStatusId + city)
+    .get('db/order?page=' + page + '&limit=15' + orderStatusId + city + dateFrom + dateTo)
     .then((response) => {
       return response.data;
     });
