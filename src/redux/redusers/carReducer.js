@@ -1,6 +1,9 @@
 import { CarTypes } from '../constants/carConstants';
 
 let initialState = {
+  cars: {},
+  isLoading: false,
+  isError: false,
   imageCar: '',
   priceMax: 1000,
   priceMin: 100,
@@ -20,6 +23,27 @@ let initialState = {
 
 const carReducer = (state = initialState, action) => {
   switch (action.type) {
+    case CarTypes.CARS_FETCH: {
+      return {
+        ...state,
+        isLoading: true,
+        isError: false,
+      };
+    }
+    case CarTypes.SET_CARS: {
+      return {
+        ...state,
+        isLoading: false,
+        cars: action.payload,
+      };
+    }
+    case CarTypes.CARS_FAILED: {
+      return {
+        ...state,
+        isError: true,
+        isLoading: false,
+      };
+    }
     case CarTypes.SET_IMAGE_CAR: {
       return {
         ...state,

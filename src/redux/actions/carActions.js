@@ -11,3 +11,6 @@ export const setCarDescription = (description) => ({
 });
 export const setCarCategoryId = (id) => ({ type: CarTypes.SET_CAR_CATEGORY_ID, payload: id });
 export const setCarColors = (colors) => ({ type: CarTypes.SET_CAR_COLORS, payload: colors });
+export const setCars = (cars) => ({ type: CarTypes.SET_CARS, payload: cars });
+export const carsFailed = () => ({ type: CarTypes.CARS_FAILED });
+export const carsFetch = () => ({ type: CarTypes.CARS_FETCH });

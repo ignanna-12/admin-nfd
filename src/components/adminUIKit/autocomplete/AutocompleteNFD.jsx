@@ -11,7 +11,7 @@ const useStyles = makeStyles({
     },
   },
 });
-const AutocompleteNFD = ({ options, getOptionLabel, label, onChange, onClear }) => {
+const AutocompleteNFD = ({ options, getOptionLabel, label, onChange, onClear, inputValue }) => {
   const classes = useStyles();
   return (
     <div className={styles.container}>
@@ -23,6 +23,7 @@ const AutocompleteNFD = ({ options, getOptionLabel, label, onChange, onClear }) 
         renderInput={(params) => <TextField {...params} label={label} variant="outlined" />}
         onChange={onChange}
         onClear={onClear}
+        inputValue={inputValue}
       />
     </div>
   );

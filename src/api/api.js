@@ -63,8 +63,8 @@ export const getPoints = () => {
   });
 };
 
-export const getCars = () => {
-  return instance.get('db/car/').then((response) => {
+export const getCars = (page, category) => {
+  return instance.get('db/car?page=' + page + '&limit=15' + category).then((response) => {
     return response.data;
   });
 };

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './TableRow.module.scss';
 
-let TableRow = ({ value, striped }) => {
+let TableRowOrder = ({ value, striped }) => {
   const rowClassName = striped ? styles.m_striped : styles.m;
   const issueDate = (d) => {
     const date = new Date(d);
@@ -60,4 +60,4 @@ let TableRow = ({ value, striped }) => {
   );
 };
 
-export default TableRow;
+export default TableRowOrder;

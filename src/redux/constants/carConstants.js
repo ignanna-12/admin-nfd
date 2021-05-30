@@ -7,4 +7,7 @@ export const CarTypes = {
   SET_CAR_DESCRIPTION: 'Car/setCarDescription',
   SET_CAR_CATEGORY_ID: 'Car/setCarCategoryId',
   SET_CAR_COLORS: 'Car/setCarColors',
+  SET_CARS: 'Car/setCars',
+  CARS_FETCH: 'Cars/carsFetch',
+  CARS_FAILED: 'Cars/carsFailed',
 };

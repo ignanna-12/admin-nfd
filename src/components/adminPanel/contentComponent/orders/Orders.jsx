@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styles from './Orders.module.scss';
-import TableRow from '../../../adminUIKit/table/TableRow';
 import { requestOrders } from '../../../../redux/thunk/ordersThunk';
 import {
   isErrorOrdersSel,
@@ -20,8 +19,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { Redirect } from 'react-router';
 import ButtonRed from '../../../adminUIKit/ButtonRed';
 import ButtonBlue from '../../../adminUIKit/ButtonBlue';
-import { NavLink } from 'react-router-dom';
-import OrderCard from '../orderCard/OrderCard';
+import TableRowOrder from '../../../adminUIKit/table/TableRowOrder';
 
 const Orders = ({ setActivePage, setOrderId }) => {
   const dispatch = useDispatch();
@@ -31,7 +29,9 @@ const Orders = ({ setActivePage, setOrderId }) => {
   const orderStatus = useSelector(orderStatusSel);
   const cities = useSelector(CitySel);
   const [status, setStatus] = useState('');
+  const [selectedStatus, setSelectedStatus] = useState('');
   const [city, setCity] = useState('');
+  const [selectedCity, setSelectedCity] = useState('');
   const [dateFrom, setDateFrom] = useState('');
   const [selectedDateFrom, setSelectedDateFrom] = useState(new Date());
   const [dateTo, setDateTo] = useState('');
@@ -81,7 +81,9 @@ const Orders = ({ setActivePage, setOrderId }) => {
                     setStatus('&orderStatusId[id]=' + orderStatus[i].id);
                   }
                 }
+                setSelectedStatus(v.target.textContent);
               }}
+              inputValue={selectedStatus}
             />
           </div>
           <div className={styles.selector}>
@@ -95,11 +97,13 @@ const Orders = ({ setActivePage, setOrderId }) => {
                     setCity('&cityId[id]=' + cities[i].id);
                   }
                 }
+                setSelectedCity(v.target.textContent);
               }}
+              inputValue={selectedCity}
             />
           </div>
           <div className={styles.date}>
-            <div className={styles.title}>Даты создания заказа</div>
+            <div className={styles.title}>Даты заказа</div>
             <div className={styles.picks}>
               <div className={styles.withPick}>
                 <p> с</p>
@@ -135,6 +139,8 @@ const Orders = ({ setActivePage, setOrderId }) => {
               onClick={() => {
                 setStatus('');
                 setCity('');
+                setSelectedCity('');
+                setSelectedStatus('');
                 setDateFrom('');
                 setSelectedDateFrom(new Date());
                 setDateTo('');
@@ -169,7 +175,7 @@ const Orders = ({ setActivePage, setOrderId }) => {
                   setOrderId(o.id);
                 }}
               >
-                <TableRow striped={!(i % 2)} value={o} />
+                <TableRowOrder striped={!(i % 2)} value={o} />
               </button>
             </div>
           ))}

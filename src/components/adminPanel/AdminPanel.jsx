@@ -23,6 +23,7 @@ const AdminPanel = () => {
   }, []);
   const [activePage, setActivePage] = useState(0);
   const [orderId, setOrderId] = useState('');
+  const [carId, setCarId] = useState('');
   return (
     <div className={styles.panel}>
       <div className={styles.header_sidebar}>
@@ -33,7 +34,7 @@ const AdminPanel = () => {
             {activePage == 0 ? (
               <ContentComponent />
             ) : activePage == 1 ? (
-              <CarsList />
+              <CarsList setActivePage={setActivePage} setCarId={setCarId} />
             ) : activePage == 2 ? (
               <Cities />
             ) : activePage == 3 ? (

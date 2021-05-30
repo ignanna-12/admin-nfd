@@ -6,3 +6,6 @@ export const CarThumbnailSel = (state) => state.carTable.thumbnail;
 export const CarDescriptionSel = (state) => state.carTable.description;
 export const CarCategoryIdSel = (state) => state.carTable.categoryId;
 export const CarColorsSel = (state) => state.carTable.colors;
+export const CarsSel = (state) => state.carTable.cars;
+export const isLoadingCarsSel = (state) => state.carTable.isLoading;
+export const isErrorCarsSel = (state) => state.carTable.isError;
