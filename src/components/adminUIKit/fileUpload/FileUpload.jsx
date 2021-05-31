@@ -12,11 +12,6 @@ const FileUpload = () => {
     if (type == 'image') {
       setError(false);
       dispatch(setImageCar(URL.createObjectURL(file)));
-      let thumbnail = { mimetype: 'image/png' };
-      thumbnail.originalname = file.name;
-      thumbnail.size = file.size;
-      thumbnail.path = URL.createObjectURL(file);
-      dispatch(setCarFile(thumbnail));
     } else {
       setError(true);
     }
@@ -29,6 +24,7 @@ const FileUpload = () => {
         onChange={(v) => {
           setChoosedFile(v.target.files[0].name);
           handleFile(v.target.files[0]);
+          dispatch(setCarFile(new FormData(v.target.files)));
         }}
       />
       <div className={error ? styles.fake_file_error : styles.fake_file}>

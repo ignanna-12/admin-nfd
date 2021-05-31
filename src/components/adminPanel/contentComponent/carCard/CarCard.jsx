@@ -9,7 +9,6 @@ import { useDispatch } from 'react-redux';
 import { setCarDescription } from '../../../../redux/actions/carActions';
 
 const CarCard = () => {
-  const [progress, setProgress] = useState(0);
   const dispatch = useDispatch();
   return (
     <div className={styles.car_card}>
@@ -21,7 +20,9 @@ const CarCard = () => {
           <ProgressBar />
           <Textarea
             title={'Описание'}
-            onChange={(v) => dispatch(setCarDescription(v.target.value))}
+            onChange={(v) => {
+              dispatch(setCarDescription(v.target.value));
+            }}
           />
         </CardContent>
       </Card>
