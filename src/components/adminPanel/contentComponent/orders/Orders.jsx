@@ -56,7 +56,7 @@ const Orders = ({ setActivePage, setOrderId }) => {
   }, []);
 
   const changeCurrentPage = (pageNumber) => {
-    dispatch(requestOrders(pageNumber));
+    dispatch(requestOrders(pageNumber, status, city, dateFrom, dateTo));
     setcurrentPage(pageNumber);
   };
 
