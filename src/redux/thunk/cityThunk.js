@@ -1,5 +1,5 @@
 import { getCities } from '../../api/api';
-import { setCity } from '../actions/cityActions';
+import { setCity, setCities, citiesFailed, citiesFetch } from '../actions/cityActions';
 
 export const requestCity = () => {
   return async (dispatch) => {
@@ -12,5 +12,16 @@ export const requestCity = () => {
       city.push(elem);
     }
     dispatch(setCity(city));
+  };
+};
+export const requestCities = () => {
+  return async (dispatch) => {
+    try {
+      dispatch(citiesFetch());
+      let data = await getCities();
+      dispatch(setCities(data));
+    } catch (error) {
+      dispatch(citiesFailed());
+    }
   };
 };

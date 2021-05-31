@@ -20,7 +20,7 @@ let TableRowCar = ({ value, striped }) => {
     value.priceMax ? row.push(value.priceMax) : row.push('-');
   }
   {
-    value.colors ? row.push(value.colors) : row.push('-');
+    value.colors ? row.push(value.colors.join('\n')) : row.push('-');
   }
   {
     value.tank ? row.push(value.tank) : row.push('-');

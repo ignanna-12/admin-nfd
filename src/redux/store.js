@@ -7,6 +7,7 @@ import carReducer from './redusers/carReducer';
 import categoryReducer from './redusers/categoryReducer';
 import ordersReducer from './redusers/orderReducer';
 import cityReducer from './redusers/cityReducer';
+import pointReducer from './redusers/pointReducer';
 
 let reducers = combineReducers({
   form: formReducer,
@@ -15,6 +16,7 @@ let reducers = combineReducers({
   categoryTable: categoryReducer,
   ordersTable: ordersReducer,
   cityTable: cityReducer,
+  pointTable: pointReducer,
 });
 
 const store = createStore(reducers, compose(applyMiddleware(thunkMiddleware)));

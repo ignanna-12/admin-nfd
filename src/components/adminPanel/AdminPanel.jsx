@@ -6,9 +6,11 @@ import { requestOrderStatus } from '../../redux/thunk/ordersThunk';
 import styles from './AdminPanel.module.scss';
 import CarsList from './contentComponent/carsList/CarsList';
 import Cities from './contentComponent/cities/Cities';
+import CityCard from './contentComponent/cityCard/CityCard';
 import ContentComponent from './contentComponent/ContentComponent';
 import OrderCard from './contentComponent/orderCard/OrderCard';
 import Orders from './contentComponent/orders/Orders';
+import PointCard from './contentComponent/pointCard/PointCard';
 import Points from './contentComponent/points/Points';
 import Footer from './footer/Footer';
 import Header from './header/Header';
@@ -24,6 +26,8 @@ const AdminPanel = () => {
   const [activePage, setActivePage] = useState(0);
   const [orderId, setOrderId] = useState('');
   const [carId, setCarId] = useState('');
+  const [cityId, setCityId] = useState('');
+  const [pointId, setPointId] = useState('');
   return (
     <div className={styles.panel}>
       <div className={styles.header_sidebar}>
@@ -32,17 +36,21 @@ const AdminPanel = () => {
           <Header />
           <div className={styles.content}>
             {activePage == 0 ? (
-              <ContentComponent />
+              <ContentComponent id={carId} />
             ) : activePage == 1 ? (
               <CarsList setActivePage={setActivePage} setCarId={setCarId} />
             ) : activePage == 2 ? (
-              <Cities />
+              <Cities setActivePage={setActivePage} setCityId={setCityId} />
             ) : activePage == 3 ? (
-              <Points />
+              <Points setActivePage={setActivePage} setPointId={setPointId} />
             ) : activePage == 4 ? (
               <OrderCard id={orderId} />
+            ) : activePage == 5 ? (
+              <Orders setActivePage={setActivePage} setOrderId={setOrderId} />
+            ) : activePage == 6 ? (
+              <CityCard id={cityId} />
             ) : (
-              activePage == 5 && <Orders setActivePage={setActivePage} setOrderId={setOrderId} />
+              activePage == 7 && <PointCard id={pointId} />
             )}
           </div>
           <Footer />

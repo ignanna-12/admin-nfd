@@ -67,7 +67,7 @@ const CarsList = ({ setActivePage, setCarId }) => {
               onChange={(v) => {
                 for (var i in categories) {
                   if (categories[i].name == v.target.textContent) {
-                    setCategory('&category[id]=' + categories[i].id);
+                    setCategory('&categoryId[id]=' + categories[i].id);
                   }
                 }
                 setSelectedCategory(v.target.textContent);
@@ -82,7 +82,7 @@ const CarsList = ({ setActivePage, setCarId }) => {
                 setCategory('');
                 setSelectedCategory('');
                 setcurrentPage(1);
-                dispatch(requestCars(currentPage, category));
+                dispatch(requestCars(currentPage));
               }}
             />
             <ButtonBlue

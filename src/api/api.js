@@ -57,8 +57,8 @@ export const getCities = () => {
   });
 };
 
-export const getPoints = () => {
-  return instance.get('db/point/').then((response) => {
+export const getPoints = (page, city) => {
+  return instance.get('db/point?page=' + page + '&limit=15' + city).then((response) => {
     return response.data;
   });
 };
