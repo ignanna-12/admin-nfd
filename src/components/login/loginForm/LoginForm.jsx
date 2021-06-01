@@ -40,47 +40,63 @@ let LoginForm = ({ onSubmit }) => {
       dispatch(requestAccess(e, p));
     }
   };
+  const handleKeyPress = (event) => {
+    if (event.keyCode == 13) {
+      console.log('enter press here!');
+    }
+  };
 
   return (
-    <div onSubmit={onSubmit} className={styles.form}>
+    <div className={styles.form}>
       {isLoading && <Preloader />}
       {userIdLogin && <Redirect to="/admin"></Redirect>}
-      <InputField
-        title={'Почта'}
-        error={emptyEmail || isError}
-        errorReason={emptyEmail ? 'Заполните поле' : 'Пользователь не найден'}
-        onChange={(e) => {
-          setEmail(e.target.value);
-          setEmptyEmail(false);
-        }}
-      />
-      <div className={styles.space}></div>
-      <InputField
-        title={'Пароль'}
-        error={emptyPassword}
-        errorReason={'Заполните поле'}
-        password={'password'}
-        onChange={(e) => {
-          setPassword(e.target.value);
-          setEmptyPassword(false);
-        }}
-      />
-      <div className={styles.buttons}>
-        <button
-          className={styles.textButton}
-          onClick={() => {
-            reqAccess(email, password);
-          }}
-        >
-          Запросить доступ
-        </button>
-        <ButtonBlue
-          title={'Войти'}
-          onClick={() => {
-            reqAuth(email, password);
+      <form>
+        <InputField
+          title={'Почта'}
+          error={emptyEmail || isError}
+          errorReason={emptyEmail ? 'Заполните поле' : 'Пользователь не найден'}
+          onChange={(e) => {
+            setEmail(e.target.value);
+            setEmptyEmail(false);
           }}
         />
-      </div>
+        <div className={styles.space}></div>
+        <InputField
+          title={'Пароль'}
+          error={emptyPassword}
+          errorReason={'Заполните поле'}
+          password={'password'}
+          onChange={(e) => {
+            setPassword(e.target.value);
+            setEmptyPassword(false);
+          }}
+        />
+        <div className={styles.buttons}>
+          <button
+            className={styles.textButton}
+            onClick={() => {
+              reqAccess(email, password);
+            }}
+          >
+            Запросить доступ
+          </button>
+          <ButtonBlue
+            title={'Войти'}
+            type="submit"
+            onClick={(e) => {
+              reqAuth(email, password);
+            }}
+          />
+          {/* <button
+          onClick={() => alert('Привет!')}
+          onKeyPress={(e) => {
+            handleKeyPress(e);
+          }}
+        >
+          жми
+        </button> */}
+        </div>
+      </form>
     </div>
   );
 };

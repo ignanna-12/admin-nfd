@@ -8,7 +8,7 @@ let initialState = {
   priceMax: 0,
   priceMin: 0,
   name: '',
-  thumbnail: FormData,
+  thumbnail: {},
   description: '',
   categoryId: '',
   colors: [],

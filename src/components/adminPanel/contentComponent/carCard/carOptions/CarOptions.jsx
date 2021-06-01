@@ -70,6 +70,12 @@ const CarOptions = () => {
             />
           </div>
           <div className={styles.row}>
+            <input
+              type="range"
+              min="0"
+              max="10000"
+              onChange={(e) => dispatch(setCarPriceMin(e.target.value))}
+            />
             <InputField
               title={'Минимальная цена'}
               onChange={(e) => {
@@ -127,6 +133,14 @@ const CarOptions = () => {
               })}
             </div>
           </div>
+          <button
+            onClick={() => {
+              console.log(getCookie('access_token'));
+              console.log(thumbnail);
+            }}
+          >
+            давай
+          </button>
           <NavLink to="/error">
             <button>жми</button>
           </NavLink>
@@ -145,7 +159,6 @@ const CarOptions = () => {
                     colors
                   )
                 );
-                console.log(getCookie('access_token'));
               }}
             />
           </div>

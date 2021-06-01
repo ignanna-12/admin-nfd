@@ -46,7 +46,7 @@ const ProgressBar = () => {
 
   useEffect(() => {
     changeProgress();
-  }, []);
+  }, [colors, category, description, carName, thumbnail, priceMax, priceMin]);
 
   return (
     <div className={styles.progress_bar}>
