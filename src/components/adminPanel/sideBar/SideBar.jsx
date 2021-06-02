@@ -10,11 +10,11 @@ import Reorder from '@material-ui/icons/Reorder';
 import SVG from 'react-inlinesvg';
 import { List, ListItem, ListItemIcon, ListItemText, makeStyles } from '@material-ui/core';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     color: '#3D5170',
-    typography: {
-      fontSize: 10,
+    '& .MuiTypography-body1': {
+      fontSize: 15,
       fontFamily: 'Helvetica',
     },
     '& svg': {
@@ -22,7 +22,9 @@ const useStyles = makeStyles((theme) => ({
     },
     '& .MuiListItem-button': {
       height: '57.5px',
+      width: '285px',
       border: 'solid 1px #CACEDB',
+      paddingLeft: '28.5px',
     },
     '& .MuiListItem-button:hover': {
       color: '#007BFF',
@@ -38,6 +40,9 @@ const useStyles = makeStyles((theme) => ({
       '& svg': {
         fill: '#007BFF',
       },
+    },
+    '& .MuiListItemIcon-root': {
+      minWidth: '40px',
     },
   },
 }));

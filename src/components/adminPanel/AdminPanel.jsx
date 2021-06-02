@@ -25,6 +25,7 @@ const AdminPanel = () => {
   }, []);
   const [activePage, setActivePage] = useState(0);
   const [orderId, setOrderId] = useState('');
+  const [currentOrder, setCurrentOrder] = useState({});
   const [carId, setCarId] = useState('');
   const [cityId, setCityId] = useState('');
   const [pointId, setPointId] = useState('');
@@ -44,9 +45,13 @@ const AdminPanel = () => {
             ) : activePage == 3 ? (
               <Points setActivePage={setActivePage} setPointId={setPointId} />
             ) : activePage == 4 ? (
-              <OrderCard id={orderId} />
+              <OrderCard id={orderId} order={currentOrder} />
             ) : activePage == 5 ? (
-              <Orders setActivePage={setActivePage} setOrderId={setOrderId} />
+              <Orders
+                setActivePage={setActivePage}
+                setOrderId={setOrderId}
+                setCurrentOrder={setCurrentOrder}
+              />
             ) : activePage == 6 ? (
               <CityCard id={cityId} />
             ) : (

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import {
+  CarCategoryIdSel,
   CarColorsSel,
   CarDescriptionSel,
   CarNameSel,
@@ -8,7 +9,6 @@ import {
   CarPriceMinSel,
   CarThumbnailSel,
 } from '../../../redux/selectors/carSelectors';
-import { CategorySel } from '../../../redux/selectors/categorySelectors';
 import styles from './ProgressBar.module.scss';
 
 const ProgressBar = () => {
@@ -18,35 +18,58 @@ const ProgressBar = () => {
   const carName = useSelector(CarNameSel);
   const thumbnail = useSelector(CarThumbnailSel);
   const description = useSelector(CarDescriptionSel);
-  const category = useSelector(CategorySel);
+  const categoryId = useSelector(CarCategoryIdSel);
   const colors = useSelector(CarColorsSel);
   const changeProgress = () => {
+    let pr1;
     if (priceMin != 0) {
-      setProgress(progress + 14);
+      pr1 = 1;
+    } else {
+      pr1 = 0;
     }
+    let pr2;
     if (priceMax != 0) {
-      setProgress(progress + 14);
+      pr2 = 1;
+    } else {
+      pr2 = 0;
     }
+    let pr3;
     if (carName != '') {
-      setProgress(progress + 14);
+      pr3 = 1;
+    } else {
+      pr3 = 0;
     }
-    if (thumbnail != {}) {
-      setProgress(progress + 16);
+    let pr4;
+    if (thumbnail.name) {
+      pr4 = 1;
+    } else {
+      pr4 = 0;
     }
+    let pr5;
     if (description != '') {
-      setProgress(progress + 14);
+      pr5 = 1;
+    } else {
+      pr5 = 0;
     }
-    if (category != '') {
-      setProgress(progress + 14);
+    let pr6;
+    if (categoryId != '') {
+      pr6 = 1;
+    } else {
+      pr6 = 0;
     }
-    if (colors != []) {
-      setProgress(progress + 14);
+    let pr7;
+    if (colors.length > 0) {
+      pr7 = 1;
+    } else {
+      pr7 = 0;
     }
+    setProgress(Math.floor(((pr1 + pr2 + pr3 + pr4 + pr5 + pr6 + pr7) * 100) / 7));
+    console.log(pr1, pr2, pr3, pr4, pr5, pr6, pr7);
   };
 
   useEffect(() => {
     changeProgress();
-  }, [colors, category, description, carName, thumbnail, priceMax, priceMin]);
+  }, [colors, categoryId, description, carName, thumbnail, priceMax, priceMin]);
 
   return (
     <div className={styles.progress_bar}>

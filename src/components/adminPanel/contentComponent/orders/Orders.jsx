@@ -21,7 +21,7 @@ import ButtonRed from '../../../adminUIKit/ButtonRed';
 import ButtonBlue from '../../../adminUIKit/ButtonBlue';
 import TableRowOrder from '../../../adminUIKit/table/TableRowOrder';
 
-const Orders = ({ setActivePage, setOrderId }) => {
+const Orders = ({ setActivePage, setOrderId, setCurrentOrder }) => {
   const dispatch = useDispatch();
   const isLoading = useSelector(isLoadingOrdersSel);
   const isError = useSelector(isErrorOrdersSel);
@@ -173,6 +173,7 @@ const Orders = ({ setActivePage, setOrderId }) => {
                 onClick={() => {
                   setActivePage(4);
                   setOrderId(o.id);
+                  setCurrentOrder(o);
                 }}
               >
                 <TableRowOrder striped={!(i % 2)} value={o} />

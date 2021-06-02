@@ -72,21 +72,23 @@ let LoginForm = ({ onSubmit }) => {
           }}
         />
         <div className={styles.buttons}>
-          <button
-            className={styles.textButton}
-            onClick={() => {
-              reqAccess(email, password);
-            }}
-          >
-            Запросить доступ
-          </button>
           <ButtonBlue
             title={'Войти'}
             type="submit"
             onClick={(e) => {
               reqAuth(email, password);
             }}
+            tabIndex="1"
           />
+          <button
+            className={styles.textButton}
+            onClick={() => {
+              reqAccess(email, password);
+            }}
+            tabIndex="2"
+          >
+            Запросить доступ
+          </button>
           {/* <button
           onClick={() => alert('Привет!')}
           onKeyPress={(e) => {

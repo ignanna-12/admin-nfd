@@ -6,7 +6,6 @@ import styles from './FileUpload.module.scss';
 const FileUpload = () => {
   const [choosedFile, setChoosedFile] = useState('Выберите файл...');
   const [error, setError] = useState(false);
-  const form = useRef(null);
   const dispatch = useDispatch();
   const handleFile = (file) => {
     const type = file.type.replace(/\/.+/, '');

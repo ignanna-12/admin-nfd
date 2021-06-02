@@ -32,13 +32,13 @@ export const postAccess = (username, password) => {
 export const postCar = (priceMin, priceMax, name, thumbnail, description, categoryId, colors) => {
   return instanceAdmin
     .post('db/car', {
-      priceMin: priceMin,
-      priceMax: priceMax,
-      name: name,
-      thumbnail: thumbnail,
-      description: description,
-      categoryId: categoryId,
-      colors: colors,
+      priceMin,
+      priceMax,
+      name,
+      thumbnail,
+      description,
+      categoryId,
+      colors,
     })
     .then((response) => {
       return response.data;

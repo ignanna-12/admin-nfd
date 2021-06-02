@@ -12,13 +12,26 @@
     svg {
         fill: #CACEDB;
     }
+    border: 0;
+}
+.search input{
+    font-style: none;
+    border: 0;
+    outline: 0;
 }
 .images {
     display: flex;
     flex-direction: row;
     align-items: center;
     img {
-        height: 70px;
+        height: 20px;
         width: auto;
     }
+}
+.admin {
+    font-family: Helvetica;
+    font-size: 15px;
+    font-weight: 400;
+    color: #5A6169;
+    margin-right: 50px;
 }
