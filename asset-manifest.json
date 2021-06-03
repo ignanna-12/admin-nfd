@@ -1,26 +1,29 @@
 {
   "files": {
-    "main.css": "/admin-nfd/static/css/main.ceb12477.chunk.css",
-    "main.js": "/admin-nfd/static/js/main.ff7d3d1b.chunk.js",
-    "main.js.map": "/admin-nfd/static/js/main.ff7d3d1b.chunk.js.map",
+    "main.css": "/admin-nfd/static/css/main.b5101c77.chunk.css",
+    "main.js": "/admin-nfd/static/js/main.676404df.chunk.js",
+    "main.js.map": "/admin-nfd/static/js/main.676404df.chunk.js.map",
     "runtime-main.js": "/admin-nfd/static/js/runtime-main.60f131c0.js",
     "runtime-main.js.map": "/admin-nfd/static/js/runtime-main.60f131c0.js.map",
     "static/css/2.b9f80894.chunk.css": "/admin-nfd/static/css/2.b9f80894.chunk.css",
-    "static/js/2.bed760a1.chunk.js": "/admin-nfd/static/js/2.bed760a1.chunk.js",
-    "static/js/2.bed760a1.chunk.js.map": "/admin-nfd/static/js/2.bed760a1.chunk.js.map",
+    "static/js/2.30f77570.chunk.js": "/admin-nfd/static/js/2.30f77570.chunk.js",
+    "static/js/2.30f77570.chunk.js.map": "/admin-nfd/static/js/2.30f77570.chunk.js.map",
     "index.html": "/admin-nfd/index.html",
     "static/css/2.b9f80894.chunk.css.map": "/admin-nfd/static/css/2.b9f80894.chunk.css.map",
-    "static/css/main.ceb12477.chunk.css.map": "/admin-nfd/static/css/main.ceb12477.chunk.css.map",
-    "static/js/2.bed760a1.chunk.js.LICENSE.txt": "/admin-nfd/static/js/2.bed760a1.chunk.js.LICENSE.txt",
+    "static/css/main.b5101c77.chunk.css.map": "/admin-nfd/static/css/main.b5101c77.chunk.css.map",
+    "static/js/2.30f77570.chunk.js.LICENSE.txt": "/admin-nfd/static/js/2.30f77570.chunk.js.LICENSE.txt",
     "static/media/4BCmG_w4dvvs_tzfWACzk8mLiPA-1920.513d2d64.jpg": "/admin-nfd/static/media/4BCmG_w4dvvs_tzfWACzk8mLiPA-1920.513d2d64.jpg",
+    "static/media/Galochka copy.17659989.svg": "/admin-nfd/static/media/Galochka copy.17659989.svg",
     "static/media/Logo Icon.bc4f3ee8.svg": "/admin-nfd/static/media/Logo Icon.bc4f3ee8.svg",
-    "static/media/loading.4cfde298.gif": "/admin-nfd/static/media/loading.4cfde298.gif"
+    "static/media/Notifications.4a73f89d.svg": "/admin-nfd/static/media/Notifications.4a73f89d.svg",
+    "static/media/loading.4cfde298.gif": "/admin-nfd/static/media/loading.4cfde298.gif",
+    "static/media/user-avatar.8fc82246.svg": "/admin-nfd/static/media/user-avatar.8fc82246.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.60f131c0.js",
     "static/css/2.b9f80894.chunk.css",
-    "static/js/2.bed760a1.chunk.js",
-    "static/css/main.ceb12477.chunk.css",
-    "static/js/main.ff7d3d1b.chunk.js"
+    "static/js/2.30f77570.chunk.js",
+    "static/css/main.b5101c77.chunk.css",
+    "static/js/main.676404df.chunk.js"
   ]
 }
