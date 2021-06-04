@@ -65,15 +65,13 @@ let LoginForm = () => {
         }}
       />
       <div className={styles.buttons}>
-        <form>
-          <ButtonBlue
-            title={'Войти'}
-            type="submit"
-            onClick={() => {
-              reqAuth(email, password);
-            }}
-          />
-        </form>
+        <ButtonBlue
+          title={'Войти'}
+          type="submit"
+          onClick={() => {
+            reqAuth(email, password);
+          }}
+        />
         <button
           className={styles.textButton}
           onClick={() => {

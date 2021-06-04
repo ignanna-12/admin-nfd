@@ -17,33 +17,33 @@ const useStyles = makeStyles(() => ({
       fontSize: 15,
       fontFamily: 'Helvetica',
     },
-    '& svg': {
-      fill: '#CACEDB',
-    },
-    '& .MuiListItem-button': {
-      height: '57.5px',
-      width: '285px',
-      border: 'solid 1px #CACEDB',
-      paddingLeft: '28.5px',
-    },
-    '& .MuiListItem-button:hover': {
-      color: '#007BFF',
-      border: 'solid 1px #CACEDB',
-      '& svg': {
-        fill: '#007BFF',
-      },
-    },
-    '& .MuiListItem-button:focus': {
-      color: '#007BFF',
-      border: 'solid 1px #CACEDB',
-      borderLeft: 'solid 3px #007BFF',
-      '& svg': {
-        fill: '#007BFF',
-      },
-    },
-    '& .MuiListItemIcon-root': {
-      minWidth: '40px',
-    },
+    //   '& svg': {
+    //     fill: '#CACEDB',
+    //   },
+    //   '& .MuiListItem-button': {
+    //     height: '57.5px',
+    //     width: '285px',
+    //     border: 'solid 1px #CACEDB',
+    //     paddingLeft: '28.5px',
+    //   },
+    //   '& .MuiListItem-button:hover': {
+    //     color: '#007BFF',
+    //     border: 'solid 1px #CACEDB',
+    //     '& svg': {
+    //       fill: '#007BFF',
+    //     },
+    //   },
+    //   '& .MuiListItem-button:focus': {
+    //     color: '#007BFF',
+    //     border: 'solid 1px #CACEDB',
+    //     borderLeft: 'solid 3px #007BFF',
+    //     '& svg': {
+    //       fill: '#007BFF',
+    //     },
+    //   },
+    //   '& .MuiListItemIcon-root': {
+    //     minWidth: '40px',
+    //   },
   },
 }));
 
@@ -53,7 +53,7 @@ const SideBar = ({ onClick }) => {
     <div className={styles.side_bar}>
       <div className={styles.logo}>
         <SVG src={Logo} />
-        <p>Need for drive</p>
+        <p className={styles.screen}>Need for drive</p>
       </div>
       <List classes={{ root: classes.root }}>
         {[
@@ -64,7 +64,7 @@ const SideBar = ({ onClick }) => {
           'Карточка заказа',
           'Заказы',
         ].map((text, index) => (
-          <ListItem button key={text} onClick={() => onClick(index)}>
+          <ListItem button key={text} onClick={() => onClick(index)} className={styles.list}>
             <ListItemIcon>
               {index == 0 ? (
                 <DirectionsCar />
@@ -80,7 +80,7 @@ const SideBar = ({ onClick }) => {
                 <DynamicFeed />
               )}
             </ListItemIcon>
-            <ListItemText primary={text} />
+            <ListItemText primary={text} className={styles.screen} />
           </ListItem>
         ))}
       </List>

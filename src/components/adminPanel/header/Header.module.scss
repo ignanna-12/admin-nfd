@@ -6,18 +6,20 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
 .search {
-    margin-left: 8px;
+    margin-left: 30px;
     svg {
         fill: #CACEDB;
+        margin-right: 8px;
     }
-    border: 0;
-}
-.search input{
-    font-style: none;
-    border: 0;
-    outline: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color:#767F9D;
+    font-family: Helvetica;
+    font-size: 13px;
 }
 .images {
     display: flex;
@@ -34,4 +36,12 @@
     font-weight: 400;
     color: #5A6169;
     margin-right: 50px;
+}
+@media (max-width: 780px){
+    .images {
+        display: none;
+    }
+    .admin {
+        display: none;
+    }
 }

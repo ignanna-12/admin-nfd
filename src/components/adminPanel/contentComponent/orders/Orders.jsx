@@ -64,7 +64,7 @@ const Orders = ({ setActivePage, setOrderId, setCurrentOrder }) => {
   return (
     <div className={styles.block}>
       <div className={styles.header}>Заказы</div>
-      <Card>
+      <Card className={styles.card}>
         {isLoading && (
           <div className={styles.for_preloader}>
             <Preloader />

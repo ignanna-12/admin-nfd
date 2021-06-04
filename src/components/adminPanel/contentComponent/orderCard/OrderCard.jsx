@@ -66,29 +66,31 @@ const OrderCard = ({ order, setActivePage, setOrderId, setCurrentOrder }) => {
   return (
     <div className={styles.order_card}>
       {/* <div className={styles.title}>Карточка заказа {id}</div> */}
-      <img src={preview} style={{ width: 138, height: 63 }}></img>
-      <div className={styles.info} style={{ width: '350px' }}>
-        <div className={styles.info_row}>
-          {model}
-          <p> в </p>
-          {city}
-          <p>{address}</p>
-        </div>
-        <div className={styles.info_row}>
-          <p>{dates}</p>
-        </div>
-        <div className={styles.info_row}>
-          <p>Цвет:</p>
-          {color}
+      <div className={styles.for_mobile}>
+        <img src={preview}></img>
+        <div className={styles.info}>
+          <div className={styles.info_row}>
+            {model}
+            <div className={styles.info_row_p}> в </div>
+            {city}
+            <div className={styles.info_row_p}>{address}</div>
+          </div>
+          <div className={styles.info_row}>
+            <div className={styles.info_row_p}>{dates}</div>
+          </div>
+          <div className={styles.info_row}>
+            <div className={styles.info_row_p}>Цвет:</div>
+            {color}
+          </div>
         </div>
       </div>
-      <div className={styles.checkboxes}>
-        <Checkbox checkedBefore={order.isFullTank} label={'Полный бак'} />
-        <Checkbox checkedBefore={order.isNeedChildChair} label={'Детское кресло'} />
-        <Checkbox checkedBefore={order.isRightWheel} label={'Правый руль'} />
-      </div>
-      <div className={styles.price} style={{ width: '120px', marginLeft: 75 }}>
-        {price} ₽
+      <div className={styles.for_mobile}>
+        <div className={styles.checkboxes}>
+          <Checkbox checkedBefore={order.isFullTank} label={'Полный бак'} />
+          <Checkbox checkedBefore={order.isNeedChildChair} label={'Детское кресло'} />
+          <Checkbox checkedBefore={order.isRightWheel} label={'Правый руль'} />
+        </div>
+        <div className={styles.price}>{price} ₽</div>
       </div>
       <div className={styles.for_buttons}>
         <ButtonGroupThree

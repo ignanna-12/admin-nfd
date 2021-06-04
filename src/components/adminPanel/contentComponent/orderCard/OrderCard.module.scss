@@ -7,31 +7,45 @@
     padding-left: 21px;
     padding-right: 21px;
 }
+.for_mobile{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex: 1;
+}
+.order_card img {
+    width: 138px;
+    height: 63px;
+}
 .info {
     display: flex;
     flex-direction: column;
     height: 63px;
     margin-left: 40px;
+    width: 350px;
+    flex-wrap: nowrap;
 }
 .checkboxes {
+    position: relative;
     
 }
 .info_row {
     display: flex;
     flex-direction: row;
+    flex-wrap: nowrap;
     align-items: baseline;
     font-family: 'Roboto';
     font-size: 13px;
     font-weight: 400;
     color: #121212;
-    line-height: 15px;
-    height: 20px;
 }
-.info_row p {
+.info_row_p {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     font-family: 'Roboto';
     font-size: 13px;
     font-weight: 400;
-    line-height: 15px;
     color: #889098;
     margin-left: 3px;
     margin-right: 3px;
@@ -47,5 +61,60 @@
 }
 .for_buttons {
     margin-top: 20px;
-    margin-left: 150px;
+}
+@media (max-width: 1270px){
+    .info {
+        width: 250px;
+    }
+    .info_row {
+        font-size: 10px;
+    }
+    .info_row_p {
+        font-size: 10px;
+        margin-left: 1px;
+        margin-right: 1px;
+    }
+    .price {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+    .for_buttons {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 780px){
+    .order_card{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+    }
+    .order_card img {
+        width: 90px;
+        height: 40px;
+    }
+    .info {
+        width: 150px;
+        margin-left: 10px;
+    }
+    .info_row {
+        font-size: 8px;
+    }
+    .info_row_p {
+        font-size: 8px;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .price {
+        font-size: 18px;
+        margin-top: 10px;
+        margin-left:15px;
+    }
+    .for_buttons {
+        margin-bottom: 15px;
+    }
 }

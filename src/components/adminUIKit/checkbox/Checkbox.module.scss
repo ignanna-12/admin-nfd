@@ -1,15 +1,16 @@
 .box {
     margin-top: 5px;
+    position: relative;
 }
 .box SVG{
     width: 9px;
     height: 9px;
-    position: fixed;
+    position: absolute;
     margin-top: 2px;
     margin-left: 2px;
 }
 .box input[type=checkbox] {
-    position: fixed;
+    position: absolute;
     appearance: none;
     border: 1px solid #999999;
     cursor: pointer;

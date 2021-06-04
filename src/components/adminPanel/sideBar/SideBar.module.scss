@@ -3,13 +3,12 @@
     flex-direction: column;
     align-items: center;
     width: 285px;
-    height: 100%;
     background-color: #FFFFFF;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
     z-index: 2;
-    position: relative;
 }
 .logo {
+    height: 43px;
     display: flex;
     flex-direction: row;
     font-family: 'Helvetica';
@@ -26,19 +25,53 @@
     height: 21px;
 }
 .list{
-    font-family: 'Helvetica';
-    font-size: 15px;
-    color:#3D5170;
+    height: 57.5px;
+    width: 285px;
+    border: solid 1px #CACEDB;
+    padding-left: 28.5px;
+    color: #3D5170;
+    svg {
+      fill: #CACEDB;
+      min-width: 40px;
+    }
 }
-.list button{
-    border: solid 1px #007BFF;
+.list:hover {
+      color: #007BFF;
+      border: solid 1px #CACEDB;
+      svg {
+        fill: #007BFF;
+      }
+    }
+.list:focus {
+      color: #007BFF;
+      border: solid 1px #CACEDB;
+      border-left: solid 3px #007BFF;
+      svg {
+        fill: #007BFF;
+      }
+    }
+.mobile {
+    display: none;
 }
-@media (max-width: 1024px){
+@media (max-width: 1150px){
     .side_bar {
         width: 60px;
-}
+    }
+    .list{
+        width: 60px;
+        padding-left: 8px;
+    }
+    .screen{
+        display: none;
+    }
+    
+    .logo {
+        :first-child{
+            margin-right: 0;
+        }
+    }
     
 }
-@media (max-width: 500px){
+@media (max-width: 780px){
     
 }

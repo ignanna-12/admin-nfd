@@ -1,29 +1,15 @@
 import React from 'react';
 import Search from '@material-ui/icons/Search';
 import styles from './Header.module.scss';
-import { Grid, makeStyles, TextField } from '@material-ui/core';
 import Noti from '../../../assets/images/Notifications.svg';
 import UserFace from '../../../assets/images/user-avatar.svg';
 
-const useStyles = makeStyles((theme) => ({
-  root: {},
-}));
 const Header = () => {
-  const classes = useStyles();
-
   return (
     <div className={styles.header}>
       <div className={styles.search}>
-        <div className={{ root: classes.root }}>
-          <Grid container spacing={1} alignItems="flex-end">
-            <Grid item>
-              <Search />
-            </Grid>
-            <Grid item>
-              <TextField id="" label="Поиск..." />
-            </Grid>
-          </Grid>
-        </div>
+        <Search />
+        <div>Поиск...</div>
       </div>
       <div className={styles.images}>
         <img src={Noti} />
