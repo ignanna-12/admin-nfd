@@ -1,0 +1,36 @@
+.box {
+    margin-top: 5px;
+}
+.box SVG{
+    width: 9px;
+    height: 9px;
+    position: fixed;
+    margin-top: 2px;
+    margin-left: 2px;
+}
+.box input[type=checkbox] {
+    position: fixed;
+    appearance: none;
+    border: 1px solid #999999;
+    cursor: pointer;
+    width: 12px;
+    height: 12px;
+    margin: 0 0 0 0;
+}
+.box label {
+    position: relative;
+    cursor:pointer;
+    font-family: 'Roboto';
+    font-size: 10px;
+    color:#999999;
+    margin-left: 16px;
+}
+.box input[type=checkbox]:checked {
+    border: 1px solid #0EC261;
+}
+.box label:hover {
+    color:#121212;
+}
+.box input[type=checkbox]:checked+label{
+    color:#121212;
+}

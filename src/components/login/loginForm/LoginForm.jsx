@@ -12,7 +12,7 @@ import InputField from '../../adminUIKit/inputField/InputField';
 import Preloader from '../../adminUIKit/preloader/Preloader';
 import styles from './LoginForm.module.scss';
 
-let LoginForm = ({ onSubmit }) => {
+let LoginForm = () => {
   const userIdLogin = useSelector(userIdLoginSel);
   const isLoading = useSelector(isLoadingAuthSel);
   const isError = useSelector(isErrorAuthSel);
@@ -40,65 +40,49 @@ let LoginForm = ({ onSubmit }) => {
       dispatch(requestAccess(e, p));
     }
   };
-  const handleKeyPress = (event) => {
-    if (event.keyCode == 13) {
-      console.log('enter press here!');
-    }
-  };
-
   return (
     <div className={styles.form}>
       {isLoading && <Preloader />}
       {userIdLogin && <Redirect to="/admin"></Redirect>}
-      <form>
-        <InputField
-          title={'Почта'}
-          error={emptyEmail || isError}
-          errorReason={emptyEmail ? 'Заполните поле' : 'Пользователь не найден'}
-          onChange={(e) => {
-            setEmail(e.target.value);
-            setEmptyEmail(false);
-          }}
-        />
-        <div className={styles.space}></div>
-        <InputField
-          title={'Пароль'}
-          error={emptyPassword}
-          errorReason={'Заполните поле'}
-          password={'password'}
-          onChange={(e) => {
-            setPassword(e.target.value);
-            setEmptyPassword(false);
-          }}
-        />
-        <div className={styles.buttons}>
+      <InputField
+        title={'Почта'}
+        error={emptyEmail || isError}
+        errorReason={emptyEmail ? 'Заполните поле' : 'Пользователь не найден'}
+        onChange={(e) => {
+          setEmail(e.target.value);
+          setEmptyEmail(false);
+        }}
+      />
+      <div className={styles.space}></div>
+      <InputField
+        title={'Пароль'}
+        error={emptyPassword}
+        errorReason={'Заполните поле'}
+        password={'password'}
+        onChange={(e) => {
+          setPassword(e.target.value);
+          setEmptyPassword(false);
+        }}
+      />
+      <div className={styles.buttons}>
+        <form>
           <ButtonBlue
             title={'Войти'}
             type="submit"
-            onClick={(e) => {
+            onClick={() => {
               reqAuth(email, password);
             }}
-            tabIndex="1"
           />
-          <button
-            className={styles.textButton}
-            onClick={() => {
-              reqAccess(email, password);
-            }}
-            tabIndex="2"
-          >
-            Запросить доступ
-          </button>
-          {/* <button
-          onClick={() => alert('Привет!')}
-          onKeyPress={(e) => {
-            handleKeyPress(e);
+        </form>
+        <button
+          className={styles.textButton}
+          onClick={() => {
+            reqAccess(email, password);
           }}
         >
-          жми
-        </button> */}
-        </div>
-      </form>
+          Запросить доступ
+        </button>
+      </div>
     </div>
   );
 };

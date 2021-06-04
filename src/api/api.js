@@ -11,7 +11,7 @@ export const instanceAuth = axios.create({
   baseURL: process.env.NODE_ENV === 'production' ? 'https://api-factory.simbirsoft1.com/api/' : '',
   headers: {
     'X-Api-Factory-Application-Id': '5e25c641099b810b946c5d5b',
-    Authorization: 'Basic dmpoamRzazIzNDo0Y2JjZWE5NmRl',
+    Authorization: 'Basic MTJnaDU0ams4Nzo0Y2JjZWE5NmRl',
   },
 });
 
@@ -95,7 +95,7 @@ export const getOrder = (orderId) => {
 
 export const getOrders = (page, orderStatusId, city, dateFrom, dateTo) => {
   return instanceAdmin
-    .get('db/order?page=' + page + '&limit=15' + orderStatusId + city + dateFrom + dateTo)
+    .get('db/order?page=' + page + '&limit=5' + orderStatusId + city + dateFrom + dateTo)
     .then((response) => {
       return response.data;
     });
@@ -103,6 +103,11 @@ export const getOrders = (page, orderStatusId, city, dateFrom, dateTo) => {
 
 export const getFullOrders = () => {
   return instanceAdmin.get('db/order').then((response) => {
+    return response.data;
+  });
+};
+export const deleteOrder = (id) => {
+  return instanceAdmin.delete('db/order/' + id).then((response) => {
     return response.data;
   });
 };

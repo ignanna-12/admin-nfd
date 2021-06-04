@@ -20,6 +20,7 @@ import { Redirect } from 'react-router';
 import ButtonRed from '../../../adminUIKit/ButtonRed';
 import ButtonBlue from '../../../adminUIKit/ButtonBlue';
 import TableRowOrder from '../../../adminUIKit/table/TableRowOrder';
+import OrderCard from '../orderCard/OrderCard';
 
 const Orders = ({ setActivePage, setOrderId, setCurrentOrder }) => {
   const dispatch = useDispatch();
@@ -49,7 +50,7 @@ const Orders = ({ setActivePage, setOrderId, setCurrentOrder }) => {
     'правый руль',
   ];
   const [currentPage, setcurrentPage] = useState(1);
-  const count = Math.floor(orders.count / 15);
+  const count = Math.floor(orders.count / 5);
 
   useEffect(() => {
     dispatch(requestOrders());
@@ -62,6 +63,7 @@ const Orders = ({ setActivePage, setOrderId, setCurrentOrder }) => {
 
   return (
     <div className={styles.block}>
+      <div className={styles.header}>Заказы</div>
       <Card>
         {isLoading && (
           <div className={styles.for_preloader}>
@@ -134,7 +136,7 @@ const Orders = ({ setActivePage, setOrderId, setCurrentOrder }) => {
             </div>
           </div>
           <div className={styles.buttons}>
-            <ButtonRed
+            {/* <ButtonRed
               title="Reset"
               onClick={() => {
                 setStatus('');
@@ -148,36 +150,42 @@ const Orders = ({ setActivePage, setOrderId, setCurrentOrder }) => {
                 setcurrentPage(1);
                 dispatch(requestOrders(currentPage, status, city, dateFrom, dateTo));
               }}
-            />
+            /> */}
             <ButtonBlue
-              title="Apply"
+              title="Применить"
               onClick={() => {
                 dispatch(requestOrders(currentPage, status, city, dateFrom, dateTo));
               }}
             />
           </div>
         </div>
-        <div className={styles.titleRow}>
+        {/* <div className={styles.titleRow}>
           {titles &&
             titles.map((o, i) => (
               <h1 key={i} className={styles.h1}>
                 {o}
               </h1>
             ))}
-        </div>
+        </div> */}
         {orders.data &&
           orders.data.map((o, i) => (
             <div key={i}>
-              <button
+              {/* <button
                 className={styles.row_button}
                 onClick={() => {
                   setActivePage(4);
                   setOrderId(o.id);
                   setCurrentOrder(o);
                 }}
-              >
-                <TableRowOrder striped={!(i % 2)} value={o} />
-              </button>
+              > */}
+              {/* <TableRowOrder striped={!(i % 2)} value={o} /> */}
+              <OrderCard
+                order={o}
+                setActivePage={setActivePage}
+                setOrderId={setOrderId}
+                setCurrentOrder={setCurrentOrder}
+              />
+              {/* </button> */}
             </div>
           ))}
         <div className={styles.page}>

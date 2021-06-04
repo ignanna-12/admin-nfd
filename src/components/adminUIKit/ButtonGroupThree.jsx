@@ -33,7 +33,7 @@ const useStyles = makeStyles({
   },
 });
 
-const MyButtonGroup = () => {
+const ButtonGroupThree = ({ onClickDelete, onClickChange }) => {
   const classes = useStyles();
   return (
     <div>
@@ -56,6 +56,7 @@ const MyButtonGroup = () => {
             outlined: classes.outlined,
             startIcon: classes.startIcon,
           }}
+          onClick={onClickDelete}
           startIcon={<ClearIcon style={{ width: '15px', height: '15px', color: '#C4183C' }} />}
         >
           Отмена
@@ -67,6 +68,7 @@ const MyButtonGroup = () => {
             outlined: classes.outlined,
             startIcon: classes.startIcon,
           }}
+          onClick={onClickChange}
           startIcon={<MoreVertIcon style={{ width: '15px', height: '15px', color: '#818EA3' }} />}
         >
           Изменить
@@ -76,4 +78,4 @@ const MyButtonGroup = () => {
   );
 };
 
-export default MyButtonGroup;
+export default ButtonGroupThree;

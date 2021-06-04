@@ -8,7 +8,16 @@
     font-family: 'Roboto';
     font-weight: 500;
     text-align: left;
-    width: 100%;
+    padding-left: 32px;
+    padding-right: 25px;
+}
+.header{
+    font-family: Helvetica;
+    font-size: 29px;
+    color: #3D5170;
+    font-weight: 400;
+    margin-top: 28px;
+    margin-bottom: 28px;
 }
 .h1 {
     color: #3D5170;
@@ -39,8 +48,10 @@
     display: flex;
     flex-direction: row;
     height: max-content;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items:center;
+    margin-left: 21px;
+    margin-right: 21px;
 }
 .selector{
     width: 150px;
@@ -84,7 +95,6 @@
 .buttons {
     display: flex;
     flex-direction: row;
-    :first-child {margin-right: 10px;}
 }
 .row_button {
     outline: none;
