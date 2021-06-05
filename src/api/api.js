@@ -111,3 +111,19 @@ export const deleteOrder = (id) => {
     return response.data;
   });
 };
+
+export const confirmOrder = (id) => {
+  return instanceAdmin
+    .put('db/order/' + id, { 'orderStatusId[id]': '5e26a1f0099b810b946c5d8b' })
+    .then((response) => {
+      return response.data;
+    });
+};
+
+export const cancelledOrder = (id) => {
+  return instanceAdmin
+    .put('db/order/' + id, { 'orderStatusId[id]': '5e26a1f5099b810b946c5d8c' })
+    .then((response) => {
+      return response.data;
+    });
+};

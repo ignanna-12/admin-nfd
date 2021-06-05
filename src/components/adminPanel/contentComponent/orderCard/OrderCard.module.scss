@@ -85,10 +85,9 @@
 
 @media (max-width: 780px){
     .order_card{
-    height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
     padding-left: 10px;
     padding-right: 10px;
@@ -98,7 +97,7 @@
         height: 40px;
     }
     .info {
-        width: 150px;
+        width: 250px;
         margin-left: 10px;
     }
     .info_row {
@@ -115,6 +114,6 @@
         margin-left:15px;
     }
     .for_buttons {
-        margin-bottom: 15px;
+        margin-bottom: 16px;
     }
 }

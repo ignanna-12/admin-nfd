@@ -15,6 +15,8 @@ import Points from './contentComponent/points/Points';
 import Footer from './footer/Footer';
 import Header from './header/Header';
 import SideBar from './sideBar/SideBar';
+import SVG from 'react-inlinesvg';
+import Logo from '../../assets/icons/Logo Icon.svg';
 
 const AdminPanel = () => {
   const dispatch = useDispatch();
@@ -29,10 +31,26 @@ const AdminPanel = () => {
   const [carId, setCarId] = useState('');
   const [cityId, setCityId] = useState('');
   const [pointId, setPointId] = useState('');
+  const [toggle, setToggle] = useState(false);
   return (
     <div className={styles.panel}>
+      <button
+        className={styles.btn}
+        onClick={() => {
+          setToggle(!toggle);
+        }}
+      >
+        <SVG src={Logo} />
+      </button>
+      {toggle && (
+        <div className={styles.hide_ahother_sidebar}>
+          <SideBar onClick={(v) => setActivePage(v)} />
+        </div>
+      )}
       <div className={styles.header_sidebar}>
-        <SideBar onClick={(v) => setActivePage(v)} />
+        <div className={styles.hide_sidebar}>
+          <SideBar onClick={(v) => setActivePage(v)} />
+        </div>
         <div className={styles.header_footer}>
           <Header />
           <div className={styles.content}>

@@ -26,9 +26,8 @@
 }
 .list{
     height: 57.5px;
-    width: 285px;
+    width: 285px !important;
     border: solid 1px #CACEDB;
-    padding-left: 28.5px;
     color: #3D5170;
     svg {
       fill: #CACEDB;
@@ -50,6 +49,9 @@
         fill: #007BFF;
       }
     }
+.screen {
+    margin-left: -8px;
+}
 .mobile {
     display: none;
 }
@@ -58,8 +60,8 @@
         width: 60px;
     }
     .list{
-        width: 60px;
-        padding-left: 8px;
+        width: 60px !important;
+        margin-left: 8px;
     }
     .screen{
         display: none;
@@ -73,5 +75,21 @@
     
 }
 @media (max-width: 780px){
+    .side_bar {
+        padding-top: 32px;
+    }
+    .logo {
+        display:none;
+    }
+    .screen{
+        display: flex;
+    }
+    .side_bar {
+        width: 150px;
+    }
+    .list{
+        width: 150px;
+        margin-left: 8px;
+    }
     
 }

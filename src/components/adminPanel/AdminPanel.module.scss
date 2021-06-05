@@ -10,6 +10,12 @@
     display: flex;
     flex-direction: row;
 }
+.hide_sidebar{
+    display: flex;
+}
+.hide_ahother_sidebar {
+    display: none;
+}
 .header_footer{
     width: 100%;
     display: flex;
@@ -19,4 +25,27 @@
 .content{
     height: 100%;
     width: 100%;
+}
+.btn {
+    display: none;
+}
+@media (max-width: 780px){
+    .hide_sidebar{
+        display: none;
+    }    
+    .btn {
+        display: flex;
+        height: 40px;
+        width: 40px;
+        margin-left: 8px;
+        top: 0;
+        z-index: 5;
+        position: absolute;
+        border: none;
+        outline: none;
+        background-color: transparent;
+    }
+    .hide_ahother_sidebar {
+        display: flex;
+    }
 }

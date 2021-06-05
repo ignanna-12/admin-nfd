@@ -33,7 +33,7 @@ const useStyles = makeStyles({
   },
 });
 
-const ButtonGroupThree = ({ onClickDelete, onClickChange }) => {
+const ButtonGroupThree = ({ onClickDelete, onClickChange, onClickSubmit }) => {
   const classes = useStyles();
   return (
     <div>
@@ -45,6 +45,7 @@ const ButtonGroupThree = ({ onClickDelete, onClickChange }) => {
             outlined: classes.outlined,
             startIcon: classes.startIcon,
           }}
+          onClick={onClickSubmit}
           startIcon={<Check style={{ width: '15px', height: '15px', color: '#17C671' }} />}
         >
           Готово

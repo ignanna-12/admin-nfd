@@ -3,7 +3,8 @@ import React from 'react';
 import Checkbox from '../../../adminUIKit/checkbox/Checkbox';
 import ButtonGroupThree from '../../../adminUIKit/ButtonGroupThree';
 import styles from './OrderCard.module.scss';
-import { deleteOrder } from '../../../../api/api';
+import Auto from '../../../../assets/images/car.jpg';
+import { cancelledOrder, confirmOrder } from '../../../../api/api';
 const OrderCard = ({ order, setActivePage, setOrderId, setCurrentOrder }) => {
   let preview;
   {
@@ -65,9 +66,8 @@ const OrderCard = ({ order, setActivePage, setOrderId, setCurrentOrder }) => {
 
   return (
     <div className={styles.order_card}>
-      {/* <div className={styles.title}>Карточка заказа {id}</div> */}
       <div className={styles.for_mobile}>
-        <img src={preview}></img>
+        <img src={preview ? preview : Auto}></img>
         <div className={styles.info}>
           <div className={styles.info_row}>
             {model}
@@ -94,7 +94,12 @@ const OrderCard = ({ order, setActivePage, setOrderId, setCurrentOrder }) => {
       </div>
       <div className={styles.for_buttons}>
         <ButtonGroupThree
-          onClickDelete={() => {}}
+          onClickSubmit={() => {
+            confirmOrder(order.id);
+          }}
+          onClickDelete={() => {
+            cancelledOrder(order.id);
+          }}
           onClickChange={() => {
             setActivePage(4);
             setOrderId(order.id);
