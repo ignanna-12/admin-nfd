@@ -59,7 +59,7 @@ const CarOptions = () => {
             <AutocompleteNFD
               options={category}
               getOptionLabel={(category) => category.name}
-              label={'Выберите категорию'}
+              label={'Категория'}
               onChange={(v) => {
                 for (var i in category) {
                   if (category[i].name == v.target.textContent) {

@@ -13,6 +13,9 @@
     color: #3D5170;
 }
 @media (max-width: 900px){
+    .component{
+        overflow-y: scroll;
+    }
     .for_mobile {
         display: none;
     }

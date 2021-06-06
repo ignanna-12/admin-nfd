@@ -40,7 +40,7 @@ const ProgressBar = () => {
       pr3 = 0;
     }
     let pr4;
-    if (thumbnail.name) {
+    if (thumbnail.originalname) {
       pr4 = 1;
     } else {
       pr4 = 0;

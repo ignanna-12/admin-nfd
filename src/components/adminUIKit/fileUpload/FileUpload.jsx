@@ -12,16 +12,16 @@ const FileUpload = () => {
     if (type == 'image') {
       setError(false);
       dispatch(setImageCar(URL.createObjectURL(file)));
-      dispatch(setCarFile(file));
+      let thumbnail = { mimetype: 'image/png' };
+      thumbnail.file = file;
+      thumbnail.originalname = file.name;
+      thumbnail.size = file.size;
+      thumbnail.path = URL.createObjectURL(file);
+      dispatch(setCarFile(thumbnail));
     } else {
       setError(true);
     }
   };
-  // const submit = (e) => {
-  //   e.preventDefault();
-  //   const data = new FormData(form.current);
-  //   dispatch(setCarFile(data));
-  // };
   return (
     <div className={styles.input_file}>
       <input
