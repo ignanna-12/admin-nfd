@@ -7,7 +7,9 @@ const ContentComponent = () => {
   return (
     <div className={styles.component}>
       <CarCard />
-      <CarOptions />
+      <div className={styles.for_mobile}>
+        <CarOptions />
+      </div>
     </div>
   );
 };

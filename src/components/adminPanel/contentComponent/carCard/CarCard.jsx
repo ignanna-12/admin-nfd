@@ -7,6 +7,7 @@ import Car from './car/Car';
 import styles from './CarCard.module.scss';
 import { useDispatch } from 'react-redux';
 import { setCarDescription } from '../../../../redux/actions/carActions';
+import CarOptions from './carOptions/CarOptions';
 
 const CarCard = () => {
   const dispatch = useDispatch();
@@ -24,6 +25,9 @@ const CarCard = () => {
               dispatch(setCarDescription(v.target.value));
             }}
           />
+          <div className={styles.when_mobile}>
+            <CarOptions />
+          </div>
         </CardContent>
       </Card>
     </div>

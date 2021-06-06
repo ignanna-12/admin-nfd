@@ -25,8 +25,8 @@ import { CategorySel } from '../../../../../redux/selectors/categorySelectors';
 import Checkbox from '../../../../adminUIKit/Checkbox';
 import { sendCar } from '../../../../../redux/thunk/carThunk';
 import { getCookie } from '../../../../../utils/getCookie';
-import { NavLink } from 'react-router-dom';
 import AutocompleteNFD from '../../../../adminUIKit/autocomplete/AutocompleteNFD';
+import ButtonRed from '../../../../adminUIKit/ButtonRed';
 
 const CarOptions = () => {
   const dispatch = useDispatch();
@@ -70,24 +70,62 @@ const CarOptions = () => {
             />
           </div>
           <div className={styles.row}>
-            <input
-              type="range"
-              min="0"
-              max="10000"
-              onChange={(e) => dispatch(setCarPriceMin(e.target.value))}
-            />
-            <InputField
-              title={'Минимальная цена'}
-              onChange={(e) => {
-                dispatch(setCarPriceMin(e.target.value));
-              }}
-            />
-            <InputField
-              title={'Максимальная цена'}
-              onChange={(e) => {
-                dispatch(setCarPriceMax(e.target.value));
-              }}
-            />
+            <div className={styles.range}>
+              <input
+                name="minprice"
+                value={priceMin}
+                type="range"
+                min="0"
+                max="10000"
+                step="1000"
+                list="tickmarks"
+                onChange={(e) => dispatch(setCarPriceMin(e.target.value))}
+              />
+              <label htmlFor="minprice" className={styles.range_label}>
+                Минимальная цена={priceMin}
+              </label>
+              <datalist id="tickmarks">
+                <option value="0" label="0p" />
+                <option value="1000" />
+                <option value="2000" />
+                <option value="3000" />
+                <option value="4000" />
+                <option value="5000" label="5000p" />
+                <option value="6000" />
+                <option value="7000" />
+                <option value="8000" />
+                <option value="9000" />
+                <option value="10000" label="10000p" />
+              </datalist>
+            </div>
+            <div className={styles.range}>
+              <input
+                name="maxprice"
+                value={priceMax}
+                type="range"
+                min={priceMin}
+                max={Number.parseInt(priceMin) + 10000}
+                step="1000"
+                list="tickmarks2"
+                onChange={(e) => dispatch(setCarPriceMax(e.target.value))}
+              />
+              <label htmlFor="minprice" className={styles.range_label}>
+                Максимальная цена цена={priceMax}
+              </label>
+              <datalist id="tickmarks2">
+                <option value={priceMin} />
+                <option value={Number.parseInt(priceMin) + 1000} />
+                <option value={Number.parseInt(priceMin) + 2000} />
+                <option value={Number.parseInt(priceMin) + 3000} />
+                <option value={Number.parseInt(priceMin) + 4000} />
+                <option value={Number.parseInt(priceMin) + 5000} />
+                <option value={Number.parseInt(priceMin) + 6000} />
+                <option value={Number.parseInt(priceMin) + 7000} />
+                <option value={Number.parseInt(priceMin) + 8000} />
+                <option value={Number.parseInt(priceMin) + 9000} />
+                <option value={Number.parseInt(priceMin) + 10000} />
+              </datalist>
+            </div>
           </div>
           <div className={styles.colors}>
             <div className={styles.color_row}>
@@ -133,17 +171,7 @@ const CarOptions = () => {
               })}
             </div>
           </div>
-          <button
-            onClick={() => {
-              console.log(getCookie('access_token'));
-              console.log(thumbnail);
-            }}
-          >
-            давай
-          </button>
-          <NavLink to="/error">
-            <button>жми</button>
-          </NavLink>
+          {console.log(getCookie('access_token'))}
           <div className={styles.row}>
             <ButtonBlue
               title={'Сохранить'}
@@ -161,6 +189,7 @@ const CarOptions = () => {
                 );
               }}
             />
+            <ButtonRed title={'Удалить'} />
           </div>
         </CardContent>
       </Card>

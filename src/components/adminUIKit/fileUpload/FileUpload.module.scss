@@ -7,7 +7,6 @@
    }
 .input_file input[type=file] {
     opacity: 0;
-    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
     position: absolute;
     z-index: 2;
     cursor: pointer;

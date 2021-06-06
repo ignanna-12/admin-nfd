@@ -18,3 +18,22 @@
     padding: 0;
     align-items: center;
 }
+.when_mobile {
+    display: none;
+}
+@media (max-width: 900px){
+    .car_card{
+        width: 100%;
+    }
+    .card {
+        margin-left: 8px;
+        height: fit-content;
+        overflow-y: auto;
+    }    
+    .title {
+        display: none;
+    }    
+    .when_mobile {
+        display: flex;
+    }
+}
