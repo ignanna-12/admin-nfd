@@ -29,7 +29,7 @@
 .btn {
     display: none;
 }
-@media (max-width: 780px){
+@media (max-width: 900px){
     .hide_sidebar{
         display: none;
     }    
@@ -47,5 +47,8 @@
     }
     .hide_ahother_sidebar {
         display: flex;
+    }
+    .content{
+        overflow-y: auto;
     }
 }

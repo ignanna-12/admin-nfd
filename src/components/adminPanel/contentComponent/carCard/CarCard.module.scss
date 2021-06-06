@@ -24,17 +24,18 @@
 @media (max-width: 900px){
     .car_card{
         width: 100%;
-        overflow-y: auto;
+        height: max-content;
     }
     .card {
         margin-left: 8px;
-        height: fit-content;
+        height: 100%;
+        width: 90%;
     }    
     .title {
         display: none;
     }    
     .when_mobile {
+        width: 100%;
         display: flex;
-        overflow-y: auto;
     }
 }
